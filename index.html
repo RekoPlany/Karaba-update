@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>هەژمارکردنی کارەبا</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121828">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --dark-bg: #121828;
+            --container-bg: rgba(30, 41, 59, 0.6);
+            --input-bg: rgba(51, 65, 85, 0.5);
+            --accent: #00f5c3;
+            --accent-dark: #00c49e;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --border-color: rgba(71, 85, 105, 0.5);
+            --shadow-color: rgba(0, 245, 195, 0.1);
+            --font-family: 'Poppins', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { overflow-x: hidden; }
+        body {
+            font-family: var(--font-family); background-color: var(--dark-bg); color: var(--text-primary);
+            min-height: 100vh; display: flex; justify-content: center; align-items: flex-start;
+            padding: 20px; position: relative; overflow-x: hidden;
+        }
+        .body-no-scroll { overflow-y: hidden; }
+        body::before, body::after {
+            content: ''; position: absolute; width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, rgba(0,245,195,0) 70%);
+            border-radius: 50%; filter: blur(100px); z-index: -1; animation: move-glow 15s infinite alternate;
+        }
+        body::before { top: -10%; left: -10%; }
+        body::after { bottom: -10%; right: -10%; animation-delay: -7.5s; }
+        @keyframes move-glow { from { transform: translate(0, 0) rotate(0deg); } to { transform: translate(100px, 50px) rotate(45deg); } }
+        .container {
+            width: 100%; max-width: 600px; background: var(--container-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color); border-radius: 24px; padding: 25px 30px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fade-in 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; opacity: 0; transform: translateY(20px);
+        }
+        @keyframes fade-in { to { opacity: 1; transform: translateY(0); } }
+        .view { animation: view-fade-in 0.4s ease-out; }
+        @keyframes view-fade-in { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none; }
+        h1 {
+            font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 25px;
+            display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--text-primary); position: relative;
+        }
+        h1 .header-icon { color: var(--accent); animation: subtle-glow 3s infinite alternate; }
+        #fullscreen-btn {
+            position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--text-secondary);
+            cursor: pointer; font-size: 16px; padding: 8px; transition: color 0.2s;
+        }
+        #fullscreen-btn:hover { color: var(--accent); }
+        @keyframes subtle-glow { from { text-shadow: 0 0 5px var(--shadow-color), 0 0 10px var(--shadow-color); } to { text-shadow: 0 0 15px var(--shadow-color), 0 0 30px var(--shadow-color); } }
+        .section { margin-bottom: 25px; }
+        .section-title {
+            font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 15px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 10px;
+        }
+        .section-title i { color: var(--accent); }
+        .section-title .title-text { display: flex; align-items: center; gap: 10px; }
+        .result-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .result-box { background: var(--input-bg); padding: 15px; border-radius: 12px; text-align: center; border: 1px solid transparent; transition: all 0.2s ease; }
+        .result-box:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .result-title { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; font-weight: 400; }
+        .result-value { font-size: 20px; font-weight: 700; color: var(--text-primary); }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; font-size: 14px; font-weight: 400; color: var(--text-secondary); margin-bottom: 8px; }
+        .input-wrapper { display: flex; gap: 10px; }
+        input, select {
+            width: 100%; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 15px;
+            font-size: 15px; color: var(--text-primary); font-family: inherit; transition: all 0.2s ease-in-out;
+        }
+        input::placeholder { color: var(--text-secondary); }
+        input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--shadow-color); }
+        select option { background-color: var(--dark-bg); }
+        .btn {
+            width: 100%; padding: 12px 15px; font-size: 16px; font-weight: 600; font-family: inherit; border-radius: 10px;
+            border: none; cursor: pointer; transition: all 0.2s ease-in-out; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-primary { background-color: var(--accent); color: var(--dark-bg); box-shadow: 0 4px 15px var(--shadow-color); }
+        .btn-primary:hover { background-color: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 6px 20px var(--shadow-color); }
+        .btn-secondary { background-color: transparent; color: var(--text-secondary); border: 1px solid var(--border-color); }
+        .btn-secondary:hover { background-color: var(--input-bg); color: var(--text-primary); border-color: var(--text-secondary); }
+        .btn-danger { color: var(--danger); border-color: var(--danger); }
+        .btn-danger:hover { background-color: rgba(239, 68, 68, 0.1); }
+        .btn-badge { background-color: var(--accent); color: var(--dark-bg); font-size: 12px; font-weight: 700; border-radius: 6px; padding: 2px 6px; margin-right: 5px; }
+        .action-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .device-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+        .device-table thead th { text-align: right; padding: 0 15px 10px; color: var(--text-secondary); font-size: 13px; font-weight: 400; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
+        .device-table tbody tr { background-color: var(--input-bg); border-radius: 12px; transition: all 0.2s ease; animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; transform: scale(0.95); }
+        @keyframes pop-in { to { opacity: 1; transform: scale(1); } }
+        .device-table tbody tr:hover { transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.2); background-color: rgba(51, 65, 85, 0.8); }
+        .device-table td { padding: 15px; vertical-align: middle; }
+        .device-table td:first-child { border-radius: 0 12px 12px 0; }
+        .device-table td:last-child { border-radius: 12px 0 0 12px; text-align: left; }
+        .action-buttons { display: flex; gap: 10px; }
+        .action-btn { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-secondary); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+        .action-btn:hover { color: var(--dark-bg); border-color: var(--accent); background-color: var(--accent); }
+        .empty-state { text-align: center; padding: 40px 20px; color: var(--text-secondary); }
+        .empty-state i { font-size: 32px; margin-bottom: 15px; display: block; color: var(--accent); opacity: 0.5; }
+        .confirmation-dialog { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.2s ease; backdrop-filter: blur(5px); }
+        .confirmation-dialog.active { opacity: 1; visibility: visible; }
+        .dialog-content { background: var(--container-bg); padding: 30px; border-radius: 16px; width: 90%; max-width: 400px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .confirmation-dialog.active .dialog-content { transform: scale(1); }
+        .dialog-message { margin-bottom: 25px; font-size: 18px; text-align: center; }
+        .dialog-buttons { display: flex; gap: 15px; }
+        .dialog-btn { flex: 1; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; transition: all 0.2s ease; }
+        .dialog-btn-confirm { background: var(--danger); color: white; }
+        .dialog-btn-cancel { background: var(--input-bg); color: var(--text-secondary); }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 12px 20px; border-radius: 12px; color: white; display: flex; align-items: center; gap: 10px; min-width: 250px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); z-index: 1001; backdrop-filter: blur(10px); animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .toast-success { background: rgba(34, 197, 94, 0.7); border: 1px solid var(--success); }
+        .toast-error { background: rgba(239, 68, 68, 0.7); border: 1px solid var(--danger); }
+        @keyframes slideUp { from { transform: translate(-50%, 100px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
+        @keyframes slideDown { to { transform: translate(-50%, 100px); opacity: 0; } }
+        @media (max-width: 640px) { body { padding: 10px; } .container { padding: 20px; } h1 { font-size: 24px; } #fullscreen-btn { font-size: 14px; } .result-container { grid-template-columns: 1fr 1fr; } .action-btns { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- View 1: Main Calculator and Add Form -->
+        <div id="main-view" class="view">
+            <h1>
+                <i id="fullscreen-btn" class="fas fa-expand" title="پڕکردنی شاشە"></i>
+                <i class="fas fa-bolt header-icon"></i>
+                <span>هەژمارکردنی کارەبا</span>
+            </h1>
+            <div class="section">
+                <h3 class="section-title"><div class="title-text"><i class="fas fa-chart-pie"></i>ئەنجامە گشتییەکان</div></h3>
+                <div class="result-container">
+                    <div class="result-box"><div class="result-title">کۆی kW</div><div class="result-value" id="totalKilowatt">0</div></div>
+                    <div class="result-box"><div class="result-title">کۆی kWh</div><div class="result-value" id="totalKwh">0</div></div>
+                    <div class="result-box"><div class="result-title">kWh مانگانە</div><div class="result-value" id="totalKilowattMonth">0</div></div>
+                    <div class="result-box"><div class="result-title">نرخ بە دینار</div><div class="result-value" id="totalDinar">0</div></div>
+                </div>
+            </div>
+            <div class="section">
+                <h3 class="section-title"><div class="title-text"><i class="fas fa-plus-circle"></i>زیادکردنی ئامێر</div></h3>
+                <div class="input-group"><label for="deviceName">ناوی ئامێر</label><input type="text" id="deviceName" placeholder="بۆ نمونە: سپلێت"></div>
+                <div class="input-wrapper">
+                    <div class="input-group" style="flex: 1;"><label for="deviceUnit">یەکە</label><select id="deviceUnit"><option value="watt" selected>وات (W)</option><option value="ampere">ئەمپێر (A)</option></select></div>
+                    <div class="input-group" style="flex: 2;"><label for="deviceValue">بڕ</label><input type="number" id="deviceValue" placeholder="بڕی وات یان ئەمپێر" min="0" step="0.1"></div>
+                </div>
+                <div class="input-group"><label for="deviceHours">کاتژمێری بەکارهێنان (ڕۆژانە)</label><input type="number" id="deviceHours" placeholder="بۆ نمونە: 8" min="0" step="0.1"></div>
+                <button class="btn btn-primary" id="addDeviceBtn"><i class="fas fa-plus"></i><span>زیادکردنی ئامێر</span></button>
+            </div>
+            <button class="btn btn-secondary" id="goToDevicesBtn">
+                <i class="fas fa-list-ul"></i>
+                <span>بینینی ئامێرەکان</span>
+                <span class="btn-badge" id="deviceCountBadge">0</span>
+            </button>
+        </div>
+        <!-- View 2: Devices List -->
+        <div id="devices-view" class="view hidden">
+            <div class="section">
+                 <h3 class="section-title">
+                    <div class="title-text"><i class="fas fa-list-ul"></i>ئامێرە زیادکراوەکان</div>
+                    <button class="btn btn-secondary" id="backToMainBtn" style="width: auto; padding: 8px 12px; font-size: 14px;">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>گەڕانەوە</span>
+                    </button>
+                </h3>
+                <table class="device-table">
+                    <thead><tr><th>ناوی ئامێر</th><th>وات</th><th>کاتژمێر</th><th>کردار</th></tr></thead>
+                    <tbody id="devicesTableBody"></tbody>
+                </table>
+                <div id="emptyState" class="empty-state"><i class="fas fa-box-open"></i><p>هیچ ئامێرێک زیاد نەکراوە</p></div>
+            </div>
+            <div class="action-btns">
+                <button class="btn btn-secondary" id="saveDataBtn"><i class="fas fa-save"></i>پاشەکەوتکردن</button>
+                <button class="btn btn-secondary btn-danger" id="clearDataBtn"><i class="fas fa-trash-alt"></i>پاککردنەوەی هەمووی</button>
+            </div>
+        </div>
+    </div>
+    <div class="confirmation-dialog" id="confirmationDialog">
+        <div class="dialog-content"><div class="dialog-message" id="dialogMessage"></div><div class="dialog-buttons"><button class="dialog-btn dialog-btn-cancel" id="dialogCancel">نەخێر</button><button class="dialog-btn dialog-btn-confirm" id="dialogConfirm">بەڵێ</button></div></div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainView = document.getElementById('main-view');
+            const devicesView = document.getElementById('devices-view');
+            const goToDevicesBtn = document.getElementById('goToDevicesBtn');
+            const backToMainBtn = document.getElementById('backToMainBtn');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const deviceNameInput = document.getElementById('deviceName');
+            const deviceUnitSelect = document.getElementById('deviceUnit');
+            const deviceValueInput = document.getElementById('deviceValue');
+            const deviceHoursInput = document.getElementById('deviceHours');
+            const addDeviceBtn = document.getElementById('addDeviceBtn');
+            const devicesTableBody = document.getElementById('devicesTableBody');
+            const totalKilowattOutput = document.getElementById('totalKilowatt');
+            const totalKilowattMonthOutput = document.getElementById('totalKilowattMonth');
+            const totalKwhOutput = document.getElementById('totalKwh');
+            const totalDinarOutput = document.getElementById('totalDinar');
+            const emptyState = document.getElementById('emptyState');
+            const saveDataBtn = document.getElementById('saveDataBtn');
+            const clearDataBtn = document.getElementById('clearDataBtn');
+            const deviceCountBadge = document.getElementById('deviceCountBadge');
+            const confirmationDialog = document.getElementById('confirmationDialog');
+            const dialogCancel = document.getElementById('dialogCancel');
+            const dialogConfirm = document.getElementById('dialogConfirm');
+            const dialogMessage = document.getElementById('dialogMessage');
+            let devices = [];
+            let editingDeviceId = null;
+            const VOLTAGE = 220;
+
+            const showView = (viewToShow) => {
+                window.scrollTo(0, 0);
+                if (viewToShow === 'main') {
+                    mainView.classList.remove('hidden');
+                    devicesView.classList.add('hidden');
+                    document.body.classList.add('body-no-scroll');
+                } else {
+                    mainView.classList.add('hidden');
+                    devicesView.classList.remove('hidden');
+                    document.body.classList.remove('body-no-scroll');
+                }
+            };
+            goToDevicesBtn.addEventListener('click', () => showView('devices'));
+            backToMainBtn.addEventListener('click', () => showView('main'));
+
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => { console.error(`Fullscreen error: ${err.message}`); });
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+            document.addEventListener('fullscreenchange', () => {
+                const icon = document.getElementById('fullscreen-btn');
+                if (document.fullscreenElement) {
+                    icon.classList.replace('fa-expand', 'fa-compress');
+                    icon.title = 'دەرچوون لە پڕکردنی شاشە';
+                } else {
+                    icon.classList.replace('fa-compress', 'fa-expand');
+                    icon.title = 'پڕکردنی شاشە';
+                }
+            });
+            
+            const loadFromLocalStorage = () => {
+                try {
+                    const savedData = localStorage.getItem('electricityDevices');
+                    devices = savedData ? JSON.parse(savedData) : [];
+                } catch(e) {
+                    console.error("Could not parse localStorage data:", e);
+                    devices = [];
+                }
+                updateUI();
+                showView('main');
+            };
+
+            const saveToLocalStorage = () => {
+                localStorage.setItem('electricityDevices', JSON.stringify(devices));
+                showToast('<i class="fas fa-check-circle"></i> داتاکان پاشەکەوتکران', 'success');
+            };
+
+            const clearInputs = () => {
+                deviceNameInput.value = ''; deviceValueInput.value = ''; deviceHoursInput.value = '';
+                deviceUnitSelect.value = 'watt'; editingDeviceId = null;
+                addDeviceBtn.innerHTML = '<i class="fas fa-plus"></i> <span>زیادکردنی ئامێر</span>';
+                deviceNameInput.focus();
+            };
+
+            const updateUI = () => {
+                renderDevices();
+                calculateTotals();
+                deviceCountBadge.textContent = devices.length;
+            };
+
+            addDeviceBtn.addEventListener('click', () => {
+                const name = deviceNameInput.value.trim();
+                const unit = deviceUnitSelect.value;
+                const value = parseFloat(deviceValueInput.value);
+                const hours = parseFloat(deviceHoursInput.value);
+
+                if (!name || isNaN(value) || value <= 0 || isNaN(hours) || hours < 0) {
+                    showToast('<i class="fas fa-exclamation-triangle"></i> تکایە هەموو خانەکان بە دروستی پڕبکەرەوە', 'error');
+                    return;
+                }
+                const watt = (unit === 'ampere') ? value * VOLTAGE : value;
+                if (editingDeviceId) {
+                    const index = devices.findIndex(d => d.id === editingDeviceId);
+                    if (index > -1) devices[index] = { id: editingDeviceId, name, watt, hours };
+                    showToast('<i class="fas fa-check-circle"></i> ئامێرەکە نوێکرایەوە', 'success');
+                } else {
+                    devices.push({ id: Date.now(), name, watt, hours });
+                    showToast('<i class="fas fa-check-circle"></i> ئامێرەکە زیادکرا', 'success');
+                }
+                updateUI();
+                clearInputs();
+            });
+            
+            const renderDevices = () => {
+                const isListEmpty = devices.length === 0;
+                emptyState.style.display = isListEmpty ? 'block' : 'none';
+                devicesTableBody.parentElement.style.display = isListEmpty ? 'none' : 'table';
+                devicesTableBody.innerHTML = devices.map((device, index) => `
+                    <tr style="animation-delay: ${index * 30}ms">
+                        <td>${device.name}</td>
+                        <td>${device.watt.toFixed(1)}</td>
+                        <td>${device.hours}</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="action-btn edit-btn" data-id="${device.id}" title="دەستکاری"><i class="fas fa-edit"></i></button>
+                                <button class="action-btn delete-btn" data-id="${device.id}" title="سڕینەوە"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </td>
+                    </tr>`).join('');
+            };
+
+            devicesTableBody.addEventListener('click', (e) => {
+                const button = e.target.closest('.action-btn');
+                if (!button) return;
+                const id = parseInt(button.dataset.id);
+                if (button.classList.contains('edit-btn')) {
+                    const device = devices.find(d => d.id === id);
+                    if (device) {
+                        deviceNameInput.value = device.name;
+                        deviceUnitSelect.value = 'watt';
+                        deviceValueInput.value = device.watt;
+                        deviceHoursInput.value = device.hours;
+                        editingDeviceId = id;
+                        addDeviceBtn.innerHTML = '<i class="fas fa-save"></i> <span>نوێکردنەوەی ئامێر</span>';
+                        showView('main');
+                        deviceNameInput.focus();
+                    }
+                } else if (button.classList.contains('delete-btn')) {
+                    showConfirmationDialog('دڵنیایت دەتەوێت ئەم ئامێرە بسڕیتەوە؟', () => {
+                        devices = devices.filter(device => device.id !== id);
+                        updateUI();
+                        showToast('<i class="fas fa-trash-alt"></i> ئامێرەکە سڕایەوە', 'error');
+                    });
+                }
+            });
+            
+            const calculateTotals = () => {
+                const totalWatts = devices.reduce((sum, d) => sum + d.watt, 0);
+                const totalKwh = devices.reduce((sum, d) => sum + (d.watt / 1000) * d.hours, 0);
+                const totalKilowatt = totalWatts / 1000;
+                const monthlyKwh = totalKwh * 30;
+                const totalCost = calculateElectricityCost(monthlyKwh);
+                totalKilowattOutput.textContent = totalKilowatt.toFixed(3);
+                totalKwhOutput.textContent = totalKwh.toFixed(3);
+                totalKilowattMonthOutput.textContent = monthlyKwh.toFixed(3);
+                totalDinarOutput.textContent = formatNumberWithCommas(Math.floor(totalCost));
+            };
+
+            const calculateElectricityCost = (kwh) => {
+                kwh = Math.max(0, kwh);
+                if (kwh <= 400) return kwh * 72;
+                if (kwh <= 800) return (400 * 72) + (kwh - 400) * 108;
+                if (kwh <= 1200) return (400 * 72) + (400 * 108) + (kwh - 800) * 175;
+                if (kwh <= 1600) return (400 * 72) + (400 * 108) + (400 * 175) + (kwh - 1200) * 265;
+                return (400 * 72) + (400 * 108) + (400 * 175) + (400 * 265) + (kwh - 1600) * 350;
+            };
+
+            const formatNumberWithCommas = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            const showConfirmationDialog = (message, confirmCallback) => {
+                dialogMessage.textContent = message;
+                confirmationDialog.classList.add('active');
+                const confirmHandler = () => { confirmCallback(); closeDialog(); };
+                const closeDialog = () => {
+                    confirmationDialog.classList.remove('active');
+                    dialogConfirm.removeEventListener('click', confirmHandler);
+                    dialogCancel.removeEventListener('click', closeDialog);
+                };
+                dialogConfirm.addEventListener('click', confirmHandler);
+                dialogCancel.addEventListener('click', closeDialog);
+            };
+
+            const showToast = (message, type) => {
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                toast.innerHTML = message;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.animation = 'slideDown 0.3s forwards';
+                    setTimeout(() => toast.remove(), 300);
+                }, 2500);
+            };
+
+            saveDataBtn.addEventListener('click', saveToLocalStorage);
+            clearDataBtn.addEventListener('click', () => {
+                showConfirmationDialog('دڵنیایت دەتەوێت هەموو داتاکان بسڕیتەوە؟', () => {
+                    devices = [];
+                    localStorage.removeItem('electricityDevices');
+                    updateUI();
+                    showToast('<i class="fas fa-trash-alt"></i> هەموو داتاکان سڕانەوە', 'error');
+                });
+            });
+            
+            loadFromLocalStorage();
+        });
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('SW registered: ', registration.scope);
+          }).catch(err => {
+            console.log('SW registration failed: ', err);
+          });
+        });
+      }
+    </script>
+</body>
+</html>
