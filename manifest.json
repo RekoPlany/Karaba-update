@@ -2,6 +2,7 @@
   "name": "هەژمارکردنی کارەبا",
   "short_name": "کارەبا",
   "description": "ئەپڵیکەشنێک بۆ هەژمارکردن و بەڕێوەبردنی خەرجی کارەبا.",
+  "scope": "/Karaba/",
   "start_url": "/Karaba/index.html",
   "display": "standalone",
   "background_color": "#121828",

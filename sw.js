@@ -1,5 +1,4 @@
-// ناوی کاشەکەمان گۆڕی بۆ ئەوەی براوزەر ناچار بکەین وەشانە نوێیەکە دابگرێت
-const CACHE_NAME = 'karaba-cache-v5'; 
+const CACHE_NAME = 'karaba-cache-v7'; 
 const urlsToCache = [
   '/Karaba/',
   '/Karaba/index.html',
@@ -9,19 +8,17 @@ const urlsToCache = [
   'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'
 ];
 
-// دانانی Service Worker و پاشەکەوتکردنی فایلەکان
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Cache opened and updated');
+        console.log('Cache opened and updated to v7');
         return cache.addAll(urlsToCache);
       })
   );
   self.skipWaiting();
 });
 
-// پاککردنەوەی کاشە کۆنەکان
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
@@ -38,17 +35,11 @@ self.addEventListener('activate', event => {
   );
 });
 
-// وەڵامدانەوە بە فایلە پاشەکەوتکراوەکان
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // ئەگەر لەناو کاشدا بوو، بیگەڕێنەرەوە
-        if (response) {
-          return response;
-        }
-        // ئەگەرنا، داوای بکە لەسەر ئینتەرنێت
-        return fetch(event.request);
+        return response || fetch(event.request);
       })
   );
 });
