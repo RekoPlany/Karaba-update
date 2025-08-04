@@ -54,7 +54,7 @@
         .view { animation: view-fade-in 0.4s ease-out; }
         @keyframes view-fade-in { from { opacity: 0; } to { opacity: 1; } }
         .hidden { display: none; }
-        h1 {
+        h1, h2 {
             font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 25px;
             display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--text-primary); position: relative;
         }
@@ -127,19 +127,19 @@
         .toast-error { background: rgba(239, 68, 68, 0.7); border: 1px solid var(--danger); }
         @keyframes slideDownToast { from { transform: translate(-50%, -100px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
         @keyframes slideUpToast { to { transform: translate(-50%, -100px); opacity: 0; } }
-        /* New Bottom Nav Styles */
+        /* Bottom Nav Styles - Adjusted for 5 items */
         .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--container-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; padding: 10px 0; z-index: 999; box-shadow: 0 -5px 20px rgba(0,0,0,0.2); }
-        .nav-btn { background: none; border: none; color: var(--text-secondary); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; font-family: inherit; transition: color 0.2s; position: relative; padding: 5px 10px; width: 25%; }
+        .nav-btn { background: none; border: none; color: var(--text-secondary); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; font-family: inherit; transition: color 0.2s; position: relative; padding: 5px 10px; width: 20%; /* Changed from 25% to 20% */ }
         .nav-btn i { font-size: 20px; }
         .nav-btn.active { color: var(--accent); }
-        .nav-btn .btn-badge { position: absolute; top: -2px; right: 15px; background-color: var(--accent); color: var(--dark-bg); font-size: 10px; font-weight: 700; border-radius: 10px; padding: 2px 6px; }
-        /* New History Card Styles */
+        .nav-btn .btn-badge { position: absolute; top: -2px; right: 5px; background-color: var(--accent); color: var(--dark-bg); font-size: 10px; font-weight: 700; border-radius: 10px; padding: 2px 6px; }
+        /* History Card Styles */
         .history-cards-container { display: grid; gap: 15px; }
         .history-card { background: var(--input-bg); border-radius: 12px; padding: 15px; border-left: 4px solid var(--accent); display: grid; grid-template-areas: "info actions" "stats actions"; grid-template-columns: 1fr auto; gap: 10px 15px; align-items: center; }
         .history-card .info { grid-area: info; color: var(--text-primary); font-size: 16px; font-weight: 600; }
         .history-card .stats { grid-area: stats; display: flex; gap: 20px; color: var(--text-secondary); font-size: 14px; }
         .history-card .actions { grid-area: actions; }
-        @media (max-width: 640px) { body { padding: 10px 10px 100px 10px; } .container { padding: 20px; } h1 { font-size: 24px; } #fullscreen-btn { font-size: 14px; } .result-container { grid-template-columns: 1fr 1fr; } .action-btns { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { body { padding: 10px 10px 100px 10px; } .container { padding: 20px; } h1,h2 { font-size: 24px; } #fullscreen-btn { font-size: 14px; } .result-container { grid-template-columns: 1fr 1fr; } .action-btns { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -175,7 +175,7 @@
 
         <!-- View 2: Devices List -->
         <div id="devices-view" class="view hidden">
-            <h3 class="section-title"><div class="title-text"><i class="fas fa-list-ul"></i>ئامێرە زیادکراوەکان</div></h3>
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-list-ul"></i>ئامێرە زیادکراوەکان</div></h2>
             <div class="section">
                 <table class="device-table">
                     <thead><tr><th>ناوی ئامێر</th><th>وات</th><th>کاتژمێر</th><th>ژمارە</th><th>کردار</th></tr></thead>
@@ -191,7 +191,7 @@
 
         <!-- View 3: kWh Difference Calculator -->
         <div id="kwh-diff-view" class="view hidden">
-            <h3 class="section-title"><div class="title-text"><i class="fas fa-exchange-alt"></i>هەژمارکردنی جیاوازی kWh</div></h3>
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-exchange-alt"></i>جیاوازیی پێوەر</div></h2>
             <div class="section">
                 <div class="input-group"><label for="prevReading">خوێندنەوەی پێشوو (kWh)</label><input type="number" id="prevReading" placeholder="0" min="0"></div>
                 <div class="input-group"><label for="currentReading">خوێندنەوەی ئێستا (kWh)</label><input type="number" id="currentReading" placeholder="0" min="0"></div>
@@ -210,10 +210,31 @@
                 <button class="btn btn-secondary" id="saveToHistoryBtn" style="margin-top: 10px;"><i class="fas fa-save"></i><span>پاشەکەوتکردن لە مێژوو</span></button>
             </div>
         </div>
+        
+        <!-- NEW View 5: Quick Cost Calculator -->
+        <div id="quick-calc-view" class="view hidden">
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-search-dollar"></i>هەژمارکردنی خێرا</div></h2>
+            <div class="section">
+                <div class="input-group">
+                    <label for="quickKwhInput">بڕی کیلۆوات (kWh)</label>
+                    <input type="number" id="quickKwhInput" placeholder="بۆ نمونە: 450" min="0">
+                </div>
+                <button class="btn btn-primary" id="quickCalcBtn"><i class="fas fa-calculator"></i><span>هەژمارکردنی نرخ</span></button>
+            </div>
+            <div class="section hidden" id="quickResultSection">
+                 <h3 class="section-title"><div class="title-text"><i class="fas fa-money-bill-wave"></i>نرخی کۆتایی</div></h3>
+                <div class="result-container" style="grid-template-columns: 1fr;">
+                    <div class="result-box">
+                        <div class="result-title">نرخ بە دیناری عێراقی</div>
+                        <div class="result-value" id="quickCostResult">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- View 4: History -->
         <div id="history-view" class="view hidden">
-            <h3 class="section-title"><div class="title-text"><i class="fas fa-history"></i>مێژووی بەکارهێنان</div></h3>
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-history"></i>مێژووی بەکارهێنان</div></h2>
             <div class="section">
                 <div id="history-cards-container"></div>
                 <div id="historyEmptyState" class="empty-state"><i class="fas fa-archive"></i><p>هیچ تۆمارێک لە مێژوودا نییە</p></div>
@@ -221,11 +242,12 @@
         </div>
     </div>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar - Updated -->
     <nav class="bottom-nav">
         <button class="nav-btn active" data-view="main-view"><i class="fas fa-calculator"></i><span>هەژمارکەر</span></button>
         <button class="nav-btn" data-view="devices-view"><i class="fas fa-list-ul"></i><span>ئامێرەکان</span><span class="btn-badge" id="navDeviceCountBadge">0</span></button>
-        <button class="nav-btn" data-view="kwh-diff-view"><i class="fas fa-exchange-alt"></i><span>جیاوازی</span></button>
+        <button class="nav-btn" data-view="kwh-diff-view"><i class="fas fa-exchange-alt"></i><span>پێوەر</span></button>
+        <button class="nav-btn" data-view="quick-calc-view"><i class="fas fa-search-dollar"></i><span>نرخ</span></button>
         <button class="nav-btn" data-view="history-view"><i class="fas fa-history"></i><span>مێژوو</span></button>
     </nav>
 
@@ -297,6 +319,12 @@
             const historyCardsContainer = document.getElementById('history-cards-container');
             const historyEmptyState = document.getElementById('historyEmptyState');
 
+            // View 5: Quick Calculator (NEW)
+            const quickKwhInput = document.getElementById('quickKwhInput');
+            const quickCalcBtn = document.getElementById('quickCalcBtn');
+            const quickResultSection = document.getElementById('quickResultSection');
+            const quickCostResult = document.getElementById('quickCostResult');
+
             // Dialogs
             const confirmationDialog = document.getElementById('confirmationDialog');
             const editHistoryDialog = document.getElementById('editHistoryDialog');
@@ -352,7 +380,7 @@
                 window.scrollTo(0, 0);
                 views.forEach(view => view.classList.toggle('hidden', view.id !== viewId));
                 navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === viewId));
-                document.body.classList.toggle('body-no-scroll', viewId === 'main-view');
+                document.body.classList.toggle('body-no-scroll', viewId === 'main-view' || viewId === 'quick-calc-view');
             };
 
             navButtons.forEach(btn => btn.addEventListener('click', () => showView(btn.dataset.view)));
@@ -492,7 +520,6 @@
                 totalCostResult.textContent = formatNumberWithCommas(Math.floor(cost));
                 diffResultSection.classList.remove('hidden');
 
-                // Set default date to current month
                 const now = new Date();
                 const year = now.getFullYear();
                 const month = (now.getMonth() + 1).toString().padStart(2, '0');
@@ -522,9 +549,7 @@
             };
             
             const renderHistory = () => {
-                // Sort by date descending
                 history.sort((a, b) => new Date(b.date) - new Date(a.date));
-
                 const isListEmpty = history.length === 0;
                 historyEmptyState.style.display = isListEmpty ? 'block' : 'none';
                 historyCardsContainer.style.display = isListEmpty ? 'none' : 'grid';
@@ -567,7 +592,6 @@
                 }
             });
 
-            // Edit history dialog logic
             editHistoryDialog.querySelector('#editHistoryConfirm').addEventListener('click', () => {
                 const newDate = editHistoryDialog.querySelector('#editHistoryDate').value;
                 const newKwh = parseFloat(editHistoryDialog.querySelector('#editHistoryKwh').value);
@@ -576,14 +600,12 @@
                     showToast('<i class="fas fa-exclamation-triangle"></i> تکایە زانیارییەکان بە دروستی پڕبکەرەوە', 'error');
                     return;
                 }
-
                 const index = history.findIndex(h => h.id === editingHistoryId);
                 if (index > -1) {
                     history[index].date = newDate;
                     history[index].kwh = newKwh;
                     history[index].cost = calculateElectricityCost(newKwh);
                 }
-
                 saveHistoryToLocalStorage();
                 updateHistoryUI();
                 editHistoryDialog.classList.remove('active');
@@ -596,6 +618,22 @@
                 editingHistoryId = null;
             });
 
+            // --- Quick Calculator Logic (NEW) ---
+            quickCalcBtn.addEventListener('click', () => {
+                const kwh = parseFloat(quickKwhInput.value);
+                if (isNaN(kwh) || kwh < 0) {
+                    showToast('<i class="fas fa-exclamation-triangle"></i> تکایە بڕێکی دروست بنووسە', 'error');
+                    return;
+                }
+                const cost = calculateElectricityCost(kwh);
+                quickCostResult.textContent = formatNumberWithCommas(Math.floor(cost));
+                quickResultSection.classList.remove('hidden');
+            });
+
+            quickKwhInput.addEventListener('input', () => {
+                // Hide previous result when user starts typing again
+                quickResultSection.classList.add('hidden');
+            });
 
             // --- Data Persistence (LocalStorage) ---
             const loadFromLocalStorage = () => {
