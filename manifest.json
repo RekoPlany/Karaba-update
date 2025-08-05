@@ -2,20 +2,20 @@
   "name": "هەژمارکردنی کارەبا",
   "short_name": "کارەبا",
   "description": "ئەپڵیکەشنێک بۆ هەژمارکردن و بەڕێوەبردنی خەرجی کارەبا.",
-  "scope": "/Karaba/",
-  "start_url": "/Karaba/index.html",
+  "scope": "/Karaba-update/",
+  "start_url": "/Karaba-update/index.html",
   "display": "standalone",
   "background_color": "#121828",
   "theme_color": "#121828",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/Karaba/icon-192.png",
+      "src": "/Karaba-update/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/Karaba/icon-512.png",
+      "src": "/Karaba-update/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
