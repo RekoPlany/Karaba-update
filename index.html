@@ -13,7 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>/* ... ستایلەکان وەک خۆی بمێننەوە ... */:root{--dark-bg:#121828;--container-bg:rgba(30, 41, 59, 0.6);--input-bg:rgba(51, 65, 85, 0.5);--accent:#00f5c3;--accent-dark:#00c49e;--text-primary:#f1f5f9;--text-secondary:#94a3b8;--danger:#ef4444;--success:#22c55e;--border-color:rgba(71, 85, 105, 0.5);--shadow-color:rgba(0, 245, 195, 0.1);--font-family:'Poppins', sans-serif}*{margin:0;padding:0;box-sizing:border-box}html{overflow-x:hidden}body{font-family:var(--font-family);background-color:var(--dark-bg);color:var(--text-primary);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:20px 20px 100px 20px;position:relative;overflow-x:hidden}.body-no-scroll{overflow-y:hidden}body::before,body::after{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle, var(--accent) 0%, rgba(0,245,195,0) 70%);border-radius:50%;filter:blur(100px);z-index:-1;animation:move-glow 15s infinite alternate}body::before{top:-10%;left:-10%}body::after{bottom:-10%;right:-10%;animation-delay:-7.5s}@keyframes move-glow{from{transform:translate(0, 0) rotate(0deg)}to{transform:translate(100px, 50px) rotate(45deg)}}.container{width:100%;max-width:600px;background:var(--container-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border-color);border-radius:24px;padding:25px 30px;box-shadow:0 8px 32px rgba(0, 0, 0, 0.3);animation:fade-in 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;opacity:0;transform:translateY(20px)}@keyframes fade-in{to{opacity:1;transform:translateY(0)}}.view{animation:view-fade-in 0.4s ease-out}@keyframes view-fade-in{from{opacity:0}to{opacity:1}}.hidden{display:none}h1,h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:25px;display:flex;align-items:center;justify-content:center;gap:12px;color:var(--text-primary);position:relative}h1 .header-icon{color:var(--accent);animation:subtle-glow 3s infinite alternate}#fullscreen-btn{position:absolute;left:0;top:50%;transform:translateY(-50%);color:var(--text-secondary);cursor:pointer;font-size:16px;padding:8px;transition:color 0.2s}#fullscreen-btn:hover{color:var(--accent)}@keyframes subtle-glow{from{text-shadow:0 0 5px var(--shadow-color), 0 0 10px var(--shadow-color)}to{text-shadow:0 0 15px var(--shadow-color), 0 0 30px var(--shadow-color)}}.section{margin-bottom:25px}.section-title{font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;gap:10px}.section-title i{color:var(--accent)}.section-title .title-text{display:flex;align-items:center;gap:10px}.result-container{display:grid;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));gap:15px}.result-box{background:var(--input-bg);padding:15px;border-radius:12px;text-align:center;border:1px solid transparent;transition:all 0.2s ease}.result-box:hover{border-color:var(--accent);transform:translateY(-3px)}.result-title{font-size:13px;color:var(--text-secondary);margin-bottom:8px;font-weight:400}.result-value{font-size:20px;font-weight:700;color:var(--text-primary)}.input-group{margin-bottom:15px}label{display:block;font-size:14px;font-weight:400;color:var(--text-secondary);margin-bottom:8px}.input-wrapper{display:flex;gap:10px}input,select{width:100%;background:var(--input-bg);border:1px solid var(--border-color);border-radius:10px;padding:12px 15px;font-size:15px;color:var(--text-primary);font-family:inherit;transition:all 0.2s ease-in-out}input::placeholder{color:var(--text-secondary)}input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--shadow-color)}select option{background-color:var(--dark-bg)}.btn{width:100%;padding:12px 15px;font-size:16px;font-weight:600;font-family:inherit;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s ease-in-out;display:flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background-color:var(--accent);color:var(--dark-bg);box-shadow:0 4px 15px var(--shadow-color)}.btn-primary:hover{background-color:var(--accent-dark);transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow-color)}.btn-secondary{background-color:transparent;color:var(--text-secondary);border:1px solid var(--border-color)}.btn-secondary:hover{background-color:var(--input-bg);color:var(--text-primary);border-color:var(--text-secondary)}.btn-danger{color:var(--danger);border-color:var(--danger)}.btn-danger:hover{background-color:rgba(239, 68, 68, 0.1)}.action-btns{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:10px}.device-table{width:100%;border-collapse:separate;border-spacing:0 10px}.device-table thead th{text-align:right;padding:0 15px 10px;color:var(--text-secondary);font-size:13px;font-weight:400;text-transform:uppercase;border-bottom:1px solid var(--border-color)}.device-table tbody tr{background-color:var(--input-bg);border-radius:12px;transition:all 0.2s ease;animation:pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;opacity:0;transform:scale(0.95)}@keyframes pop-in{to{opacity:1;transform:scale(1)}}.device-table tbody tr:hover{transform:scale(1.02);box-shadow:0 4px 20px rgba(0,0,0,0.2);background-color:rgba(51, 65, 85, 0.8)}.device-table td{padding:15px;vertical-align:middle}.device-table td:first-child{border-radius:0 12px 12px 0}.device-table td:last-child{border-radius:12px 0 0 12px;text-align:left}.action-buttons{display:flex;gap:10px}.action-btn{background:rgba(255, 255, 255, 0.05);border:1px solid var(--border-color);color:var(--text-secondary);width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease}.action-btn:hover{color:var(--dark-bg);border-color:var(--accent);background-color:var(--accent)}.empty-state{text-align:center;padding:40px 20px;color:var(--text-secondary)}.empty-state i{font-size:32px;margin-bottom:15px;display:block;color:var(--accent);opacity:0.5}.confirmation-dialog{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.7);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all 0.2s ease;backdrop-filter:blur(5px)}.confirmation-dialog.active{opacity:1;visibility:visible}.dialog-content{background:var(--container-bg);padding:30px;border-radius:16px;width:90%;max-width:400px;border:1px solid var(--border-color);box-shadow:0 10px 30px rgba(0, 0, 0, 0.2);transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}.confirmation-dialog.active .dialog-content{transform:scale(1)}.dialog-title{font-size:20px;font-weight:600;text-align:center;margin-bottom:20px}.dialog-message{margin-bottom:25px;font-size:18px;text-align:center}.dialog-buttons{display:flex;gap:15px}.dialog-btn{flex:1;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all 0.2s ease}.dialog-btn-confirm{background:var(--accent);color:var(--dark-bg)}.dialog-btn-danger{background:var(--danger);color:white}.dialog-btn-cancel{background:var(--input-bg);color:var(--text-secondary)}.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);padding:12px 20px;border-radius:12px;color:white;display:flex;align-items:center;gap:10px;min-width:250px;box-shadow:0 4px 12px rgba(0, 0, 0, 0.2);z-index:1001;backdrop-filter:blur(10px);animation:slideDownToast 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards}.toast-success{background:rgba(34, 197, 94, 0.7);border:1px solid var(--success)}.toast-error{background:rgba(239, 68, 68, 0.7);border:1px solid var(--danger)}@keyframes slideDownToast{from{transform:translate(-50%, -100px);opacity:0}to{transform:translate(-50%, 0);opacity:1}}@keyframes slideUpToast{to{transform:translate(-50%, -100px);opacity:0}}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--container-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--border-color);display:flex;justify-content:space-around;padding:10px 0;z-index:999;box-shadow:0 -5px 20px rgba(0,0,0,0.2)}.nav-btn{background:none;border:none;color:var(--text-secondary);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;font-family:inherit;transition:color 0.2s;position:relative;padding:5px 10px;width:20%}.nav-btn i{font-size:20px}.nav-btn.active{color:var(--accent)}.nav-btn .btn-badge{position:absolute;top:-2px;right:5px;background-color:var(--accent);color:var(--dark-bg);font-size:10px;font-weight:700;border-radius:10px;padding:2px 6px}.history-cards-container{display:grid;gap:15px}.history-card{background:var(--input-bg);border-radius:12px;padding:15px;border-left:4px solid var(--accent);display:grid;grid-template-areas:"info actions" "stats actions";grid-template-columns:1fr auto;gap:10px 15px;align-items:center}.history-card .info{grid-area:info;color:var(--text-primary);font-size:16px;font-weight:600}.history-card .stats{grid-area:stats;display:flex;gap:20px;color:var(--text-secondary);font-size:14px}.history-card .actions{grid-area:actions}@media (max-width: 640px){body{padding:10px 10px 100px 10px}.container{padding:20px}h1,h2{font-size:24px}#fullscreen-btn{font-size:14px}.result-container{grid-template-columns:1fr 1fr}.action-btns{grid-template-columns:1fr}}</style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>/* ... ستایلەکان وەک خۆی بمێننەوە ... */:root{--dark-bg:#121828;--container-bg:rgba(30, 41, 59, 0.6);--input-bg:rgba(51, 65, 85, 0.5);--accent:#00f5c3;--accent-dark:#00c49e;--text-primary:#f1f5f9;--text-secondary:#94a3b8;--danger:#ef4444;--success:#22c55e;--border-color:rgba(71, 85, 105, 0.5);--shadow-color:rgba(0, 245, 195, 0.1);--font-family:'Poppins', sans-serif}*{margin:0;padding:0;box-sizing:border-box}html{overflow-x:hidden}body{font-family:var(--font-family);background-color:var(--dark-bg);color:var(--text-primary);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:20px 20px 100px 20px;position:relative;overflow-x:hidden}.body-no-scroll{overflow-y:hidden}body::before,body::after{content:'';position:absolute;width:500px;height:500px;background:radial-gradient(circle, var(--accent) 0%, rgba(0,245,195,0) 70%);border-radius:50%;filter:blur(100px);z-index:-1;animation:move-glow 15s infinite alternate}body::before{top:-10%;left:-10%}body::after{bottom:-10%;right:-10%;animation-delay:-7.5s}@keyframes move-glow{from{transform:translate(0, 0) rotate(0deg)}to{transform:translate(100px, 50px) rotate(45deg)}}.container{width:100%;max-width:600px;background:var(--container-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border-color);border-radius:24px;padding:25px 30px;box-shadow:0 8px 32px rgba(0, 0, 0, 0.3);animation:fade-in 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;opacity:0;transform:translateY(20px)}@keyframes fade-in{to{opacity:1;transform:translateY(0)}}.view{animation:view-fade-in 0.4s ease-out}@keyframes view-fade-in{from{opacity:0}to{opacity:1}}.hidden{display:none}h1,h2{font-size:28px;font-weight:700;text-align:center;margin-bottom:25px;display:flex;align-items:center;justify-content:center;gap:12px;color:var(--text-primary);position:relative}h1 .header-icon{color:var(--accent);animation:subtle-glow 3s infinite alternate}#fullscreen-btn{position:absolute;left:0;top:50%;transform:translateY(-50%);color:var(--text-secondary);cursor:pointer;font-size:16px;padding:8px;transition:color 0.2s}#fullscreen-btn:hover{color:var(--accent)}@keyframes subtle-glow{from{text-shadow:0 0 5px var(--shadow-color), 0 0 10px var(--shadow-color)}to{text-shadow:0 0 15px var(--shadow-color), 0 0 30px var(--shadow-color)}}.section{margin-bottom:25px}.section-title{font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:15px;padding-bottom:8px;border-bottom:1px solid var(--border-color);display:flex;align-items:center;justify-content:space-between;gap:10px}.section-title i{color:var(--accent)}.section-title .title-text{display:flex;align-items:center;gap:10px}.result-container{display:grid;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));gap:15px}.result-box{background:var(--input-bg);padding:15px;border-radius:12px;text-align:center;border:1px solid transparent;transition:all 0.2s ease}.result-box:hover{border-color:var(--accent);transform:translateY(-3px)}.result-title{font-size:13px;color:var(--text-secondary);margin-bottom:8px;font-weight:400}.result-value{font-size:20px;font-weight:700;color:var(--text-primary)}.input-group{margin-bottom:15px}label{display:block;font-size:14px;font-weight:400;color:var(--text-secondary);margin-bottom:8px}.input-wrapper{display:flex;gap:10px}input,select{width:100%;background:var(--input-bg);border:1px solid var(--border-color);border-radius:10px;padding:12px 15px;font-size:15px;color:var(--text-primary);font-family:inherit;transition:all 0.2s ease-in-out}input::placeholder{color:var(--text-secondary)}input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--shadow-color)}select option{background-color:var(--dark-bg)}.btn{width:100%;padding:12px 15px;font-size:16px;font-weight:600;font-family:inherit;border-radius:10px;border:none;cursor:pointer;transition:all 0.2s ease-in-out;display:flex;align-items:center;justify-content:center;gap:8px}.btn-primary{background-color:var(--accent);color:var(--dark-bg);box-shadow:0 4px 15px var(--shadow-color)}.btn-primary:hover{background-color:var(--accent-dark);transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow-color)}.btn-secondary{background-color:transparent;color:var(--text-secondary);border:1px solid var(--border-color)}.btn-secondary:hover{background-color:var(--input-bg);color:var(--text-primary);border-color:var(--text-secondary)}.btn-danger{color:var(--danger);border-color:var(--danger)}.btn-danger:hover{background-color:rgba(239, 68, 68, 0.1)}.action-btns{display:grid;grid-template-columns:1fr;gap:15px;margin-top:10px}#devices-cards-container{display:grid;grid-template-columns:1fr 1fr;gap:15px}.device-card{background:var(--input-bg);border-radius:16px;border:1px solid var(--border-color);cursor:pointer;transition:all .2s ease;position:relative;padding:15px}.device-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.3);border-color:var(--accent)}.device-card-name{font-size:16px;font-weight:600;color:var(--text-primary);margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.device-card-stats{display:flex;align-items:center;justify-content:space-between;gap:10px}.device-card-stat .value{font-size:16px;font-weight:700;color:var(--text-primary)}.device-card-stat .label{font-size:11px;color:var(--text-secondary)}.empty-state{text-align:center;padding:40px 20px;color:var(--text-secondary)}.empty-state i{font-size:32px;margin-bottom:15px;display:block;color:var(--accent);opacity:0.5}.confirmation-dialog{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0, 0, 0, 0.7);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;transition:all 0.2s ease;backdrop-filter:blur(5px)}.confirmation-dialog.active{opacity:1;visibility:visible}.dialog-content{background:var(--container-bg);padding:30px;border-radius:16px;width:90%;max-width:400px;border:1px solid var(--border-color);box-shadow:0 10px 30px rgba(0, 0, 0, 0.2);transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}.confirmation-dialog.active .dialog-content{transform:scale(1)}.dialog-title{font-size:20px;font-weight:600;text-align:center;margin-bottom:20px}.dialog-message{margin-bottom:25px;font-size:18px;text-align:center}.dialog-buttons{display:flex;gap:15px}.dialog-btn{flex:1;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:all 0.2s ease}.dialog-btn-confirm{background:var(--accent);color:var(--dark-bg)}.dialog-btn-danger{background:var(--danger);color:white}.dialog-btn-cancel{background:var(--input-bg);color:var(--text-secondary)}#confirmationDialog{z-index:1002}#imageDialog, #editHistoryDialog, #historyDetailDialog, #chartDetailDialog, #deviceDetailDialog{z-index:1001}#fullImageDialog{z-index:1003}.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);padding:12px 20px;border-radius:12px;color:white;display:flex;align-items:center;gap:10px;min-width:250px;box-shadow:0 4px 12px rgba(0, 0, 0, 0.2);z-index:1003;backdrop-filter:blur(10px);animation:slideDownToast 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards}.toast-success{background:rgba(34, 197, 94, 0.7);border:1px solid var(--success)}.toast-error{background:rgba(239, 68, 68, 0.7);border:1px solid var(--danger)}@keyframes slideDownToast{from{transform:translate(-50%, -100px);opacity:0}to{transform:translate(-50%, 0);opacity:1}}@keyframes slideUpToast{to{transform:translate(-50%, -100px);opacity:0}}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--container-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--border-color);display:flex;justify-content:space-around;padding:10px 0;z-index:999;box-shadow:0 -5px 20px rgba(0,0,0,0.2)}.nav-btn{background:none;border:none;color:var(--text-secondary);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;font-family:inherit;transition:color 0.2s;position:relative;padding:5px 10px;width:16.66%}.nav-btn i{font-size:20px}.nav-btn.active{color:var(--accent)}.nav-btn .btn-badge{position:absolute;top:-2px;right:5px;background-color:var(--accent);color:var(--dark-bg);font-size:10px;font-weight:700;border-radius:10px;padding:2px 6px}.history-cards-container{display:grid;grid-template-columns:1fr 1fr;gap:15px}.history-card{background:var(--input-bg);border-radius:16px;border:1px solid var(--border-color);cursor:pointer;transition:all .2s ease;position:relative;padding:15px}.history-card:hover{transform:translateY(-5px);box-shadow:0 8px 25px rgba(0,0,0,0.3);border-color:var(--accent)}.history-card-date-small{font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:10px}.history-card-main-stats{display:flex;align-items:center;justify-content:space-between;gap:10px}.history-card-stat-small .value{font-size:16px;font-weight:700;color:var(--text-primary)}.history-card-stat-small .label{font-size:11px;color:var(--text-secondary)}.history-card-actions-small{position:absolute;top:5px;left:5px;display:flex}.history-card-image-indicator{position:absolute;bottom:8px;left:8px;color:var(--accent);font-size:12px}.image-dialog .dialog-content{max-width:500px}.image-preview-container{width:100%;max-height:300px;background:var(--dark-bg);border-radius:12px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border-color)}.image-preview-container img{max-width:100%;max-height:300px;display:block}.upload-label{display:block;width:100%;text-align:center;padding:12px;border-radius:8px;border:2px dashed var(--border-color);color:var(--text-secondary);cursor:pointer;transition:all .2s}.upload-label:hover{background:var(--input-bg);color:var(--text-primary)}input[type="file"]{display:none}#historyDetailDialog .dialog-content, #chartDetailDialog .dialog-content, #deviceDetailDialog .dialog-content{max-width:600px;padding:0;overflow:hidden}#historyDetailDialog .detail-header, #chartDetailDialog .detail-header, #deviceDetailDialog .detail-header{padding:20px;text-align:center;border-bottom:1px solid var(--border-color)}#historyDetailDialog .detail-date, #chartDetailDialog .detail-date, #deviceDetailDialog .detail-name{font-size:22px;font-weight:700}#historyDetailDialog .detail-body, #chartDetailDialog .detail-body, #deviceDetailDialog .detail-body{display:flex;flex-direction:column;padding:25px}#historyDetailDialog .detail-main-stats, #chartDetailDialog .detail-main-stats, #deviceDetailDialog .detail-main-stats{display:flex;justify-content:space-around;text-align:center;margin-bottom:25px}#historyDetailDialog .detail-stat-item .value, #chartDetailDialog .detail-stat-item .value, #deviceDetailDialog .detail-stat-item .value{font-size:24px;font-weight:700;color:var(--accent)}#historyDetailDialog .detail-stat-item .label, #chartDetailDialog .detail-stat-item .label, #deviceDetailDialog .detail-stat-item .label{font-size:14px;color:var(--text-secondary)}#historyDetailDialog .detail-readings, #chartDetailDialog .detail-readings, #deviceDetailDialog .detail-readings{background:var(--input-bg);border-radius:12px;padding:15px;display:flex;justify-content:space-around;text-align:center;flex-wrap:wrap;gap:15px}#historyDetailDialog .detail-image-container, #chartDetailDialog .detail-image-container{margin-top:20px;width:100%;max-height:300px;border-radius:12px;overflow:hidden;background:var(--dark-bg);cursor:pointer}#historyDetailDialog .detail-image-container:hover, #chartDetailDialog .detail-image-container:hover{box-shadow:0 0 0 2px var(--accent)}.detail-image-container img{width:100%;height:100%;object-fit:contain}#historyDetailDialog .dialog-close-btn, #chartDetailDialog .dialog-close-btn, #deviceDetailDialog .dialog-close-btn, #fullImageDialog .dialog-close-btn{position:absolute;top:15px;left:15px;background:none;border:none;color:var(--text-secondary);font-size:20px;cursor:pointer}#fullImageDialog .dialog-close-btn{right:15px;left:auto;color:white;text-shadow:0 1px 3px black;font-size:28px}.chart-container{position:relative;height:40vh;background:var(--input-bg);padding:15px;border-radius:16px;border:1px solid var(--border-color)}#fullImageDialog img{max-width:95vw;max-height:95vh;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.5);object-fit:contain}#fullImageDialog .dialog-content{display:none} @media (max-width: 640px){body{padding:10px 10px 100px 10px}.container{padding:20px}h1,h2{font-size:24px}#fullscreen-btn{font-size:14px}.result-container{grid-template-columns:1fr 1fr}#devices-cards-container{grid-template-columns:1fr}}</style>
 </head>
 <body>
     <div class="container">
@@ -22,7 +23,16 @@
              <h1><i id="fullscreen-btn" class="fas fa-expand" title="پڕکردنی شاشە"></i><i class="fas fa-bolt header-icon"></i><span>هەژمارکردنی کارەبا</span></h1><div class="section"><h3 class="section-title"><div class="title-text"><i class="fas fa-chart-pie"></i>ئەنجامە گشتییەکان (بەپێی ئامێرەکان)</div></h3><div class="result-container"><div class="result-box"><div class="result-title">کۆی kW</div><div class="result-value" id="totalKilowatt">0</div></div><div class="result-box"><div class="result-title">kWh ڕۆژانە</div><div class="result-value" id="totalKwh">0</div></div><div class="result-box"><div class="result-title">kWh مانگانە</div><div class="result-value" id="totalKilowattMonth">0</div></div><div class="result-box"><div class="result-title">نرخ بە دینار</div><div class="result-value" id="totalDinar">0</div></div></div></div><div class="section"><h3 class="section-title"><div class="title-text"><i class="fas fa-plus-circle"></i>زیادکردنی ئامێر</div></h3><div class="input-group"><label for="deviceName">ناوی ئامێر</label><input type="text" id="deviceName" placeholder="بۆ نمونە: سپلێت"></div><div class="input-wrapper"><div class="input-group" style="flex: 1;"><label for="deviceUnit">یەکە</label><select id="deviceUnit"><option value="watt" selected>وات (W)</option><option value="ampere">ئەمپێر (A)</option></select></div><div class="input-group" style="flex: 2;"><label for="deviceValue">بڕ</label><input type="number" id="deviceValue" placeholder="بڕی وات یان ئەمپێر" min="0" step="0.1"></div><div class="input-group" style="flex: 1;"><label for="deviceQuantity">ژمارە</label><input type="number" id="deviceQuantity" value="1" min="1" step="1"></div></div><div class="input-group"><label for="deviceHours">کاتژمێری بەکارهێنان (ڕۆژانە)</label><input type="number" id="deviceHours" placeholder="بۆ نمونە: 8" min="0" step="0.1"></div><button class="btn btn-primary" id="addDeviceBtn"><i class="fas fa-plus"></i><span>زیادکردنی ئامێر</span></button></div>
         </div>
         <div id="devices-view" class="view hidden">
-            <h2 class="section-title"><div class="title-text"><i class="fas fa-list-ul"></i>ئامێرە زیادکراوەکان</div></h2><div class="section"><table class="device-table"><thead><tr><th>ناوی ئامێر</th><th>وات</th><th>کاتژمێر</th><th>ژمارە</th><th>کردار</th></tr></thead><tbody id="devicesTableBody"></tbody></table><div id="emptyState" class="empty-state"><i class="fas fa-box-open"></i><p>هیچ ئامێرێک زیاد نەکراوە</p></div></div><div class="action-btns"><button class="btn btn-secondary" id="saveDataBtn"><i class="fas fa-save"></i>پاشەکەوتکردن</button><button class="btn btn-secondary btn-danger" id="clearDataBtn"><i class="fas fa-trash-alt"></i>پاککردنەوەی هەمووی</button></div>
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-list-ul"></i>ئامێرە زیادکراوەکان</div></h2>
+            <div class="section">
+                <div id="devices-cards-container"></div>
+                <div id="devicesEmptyState" class="empty-state">
+                    <i class="fas fa-box-open"></i><p>هیچ ئامێرێک زیاد نەکراوە</p>
+                </div>
+            </div>
+            <div class="action-btns">
+                <button class="btn btn-secondary btn-danger" id="clearDataBtn"><i class="fas fa-trash-alt"></i>پاککردنەوەی هەمووی</button>
+            </div>
         </div>
         <div id="kwh-diff-view" class="view hidden">
             <h2 class="section-title"><div class="title-text"><i class="fas fa-exchange-alt"></i>جیاوازیی پێوەر</div></h2><div class="section"><div class="input-group"><label for="prevReading">خوێندنەوەی پێشوو (kWh)</label><input type="number" id="prevReading" placeholder="0" min="0"></div><div class="input-group"><label for="currentReading">خوێندنەوەی ئێستا (kWh)</label><input type="number" id="currentReading" placeholder="0" min="0"></div><button class="btn btn-primary" id="calculateDiffBtn"><i class="fas fa-calculator"></i><span>هەژمارکردن</span></button></div><div class="section hidden" id="diffResultSection"><h3 class="section-title"><div class="title-text"><i class="fas fa-chart-bar"></i>ئەنجام</div></h3><div class="result-container"><div class="result-box"><div class="result-title">kWhی بەکارهاتوو</div><div class="result-value" id="kwhConsumedResult">0</div></div><div class="result-box"><div class="result-title">نرخی گشتی (دینار)</div><div class="result-value" id="totalCostResult">0</div></div></div><div class="input-group" style="margin-top: 20px;"><label for="historyDate">مانگ بۆ ئەم تۆمارە</label><input type="month" id="historyDate"></div><button class="btn btn-secondary" id="saveToHistoryBtn" style="margin-top: 10px;"><i class="fas fa-save"></i><span>پاشەکەوتکردن لە مێژوو</span></button></div>
@@ -33,6 +43,15 @@
         <div id="history-view" class="view hidden">
             <h2 class="section-title"><div class="title-text"><i class="fas fa-history"></i>مێژووی بەکارهێنان</div></h2><div class="section"><div id="history-cards-container"></div><div id="historyEmptyState" class="empty-state"><i class="fas fa-archive"></i><p>هیچ تۆمارێک لە مێژوودا نییە</p></div></div>
         </div>
+        <div id="chart-view" class="view hidden">
+            <h2 class="section-title"><div class="title-text"><i class="fas fa-chart-line"></i>شیکاریی نرخ</div></h2>
+            <div class="section">
+                <div class="chart-container">
+                    <canvas id="costChart"></canvas>
+                </div>
+                 <div id="chartEmptyState" class="empty-state hidden" style="padding: 20px 0;"><i class="fas fa-chart-bar"></i><p>هیچ داتایەک نییە بۆ پیشاندان</p></div>
+            </div>
+        </div>
     </div>
     <nav class="bottom-nav">
         <button class="nav-btn active" data-view="main-view"><i class="fas fa-calculator"></i><span>هەژمارکەر</span></button>
@@ -40,14 +59,812 @@
         <button class="nav-btn" data-view="kwh-diff-view"><i class="fas fa-exchange-alt"></i><span>پێوەر</span></button>
         <button class="nav-btn" data-view="quick-calc-view"><i class="fas fa-search-dollar"></i><span>نرخ</span></button>
         <button class="nav-btn" data-view="history-view"><i class="fas fa-history"></i><span>مێژوو</span></button>
+        <button class="nav-btn" data-view="chart-view"><i class="fas fa-chart-line"></i><span>شیکاری</span></button>
     </nav>
     <div class="confirmation-dialog" id="confirmationDialog">
         <div class="dialog-content"><div class="dialog-message" id="dialogMessage"></div><div class="dialog-buttons"><button class="dialog-btn dialog-btn-cancel">نەخێر</button><button class="dialog-btn dialog-btn-danger" id="dialogConfirm">بەڵێ</button></div></div>
     </div>
     <div class="confirmation-dialog" id="editHistoryDialog">
-        <div class="dialog-content"><h3 class="dialog-title">دەستکاری تۆمار</h3><div class="input-group"><label for="editHistoryDate">بەروار</label><input type="month" id="editHistoryDate"></div><div class="input-group"><label for="editHistoryKwh">بڕی kWh</label><input type="number" id="editHistoryKwh" min="0"></div><div class="dialog-buttons"><button class="dialog-btn dialog-btn-cancel">پاشگەزبوونەوە</button><button class="dialog-btn dialog-btn-confirm" id="editHistoryConfirm">نوێکردنەوە</button></div></div>
+        <div class="dialog-content">
+            <h3 class="dialog-title">دەستکاری تۆمار</h3>
+            <div class="input-group">
+                <label for="editHistoryDate">بەروار</label>
+                <input type="month" id="editHistoryDate">
+            </div>
+            <div class="input-group">
+                <label for="editHistoryPrevReading">خوێندنەوەی پێشوو</label>
+                <input type="number" id="editHistoryPrevReading" min="0">
+            </div>
+            <div class="input-group">
+                <label for="editHistoryCurrentReading">خوێندنەوەی ئێستا</label>
+                <input type="number" id="editHistoryCurrentReading" min="0">
+            </div>
+            <div class="dialog-buttons">
+                <button class="dialog-btn dialog-btn-cancel">پاشگەزبوونەوە</button>
+                <button class="dialog-btn dialog-btn-confirm" id="editHistoryConfirm">نوێکردنەوە</button>
+            </div>
+        </div>
     </div>
-    <script>/*... هەموو سکریپتەکان وەک خۆی بمێننەوە ... */document.addEventListener('DOMContentLoaded',function(){const e=document.querySelectorAll('.view'),t=document.querySelectorAll('.nav-btn'),o=document.getElementById('fullscreen-btn'),n=document.getElementById('deviceName'),a=document.getElementById('deviceUnit'),i=document.getElementById('deviceValue'),l=document.getElementById('deviceQuantity'),s=document.getElementById('deviceHours'),c=document.getElementById('addDeviceBtn'),r=document.getElementById('totalKilowatt'),d=document.getElementById('totalKilowattMonth'),u=document.getElementById('totalKwh'),m=document.getElementById('totalDinar'),h=document.getElementById('devicesTableBody'),y=document.getElementById('emptyState'),v=document.getElementById('saveDataBtn'),g=document.getElementById('clearDataBtn'),b=document.getElementById('navDeviceCountBadge'),w=document.getElementById('prevReading'),p=document.getElementById('currentReading'),k=document.getElementById('calculateDiffBtn'),f=document.getElementById('diffResultSection'),I=document.getElementById('kwhConsumedResult'),E=document.getElementById('totalCostResult'),x=document.getElementById('historyDate'),L=document.getElementById('saveToHistoryBtn'),H=document.getElementById('history-cards-container'),S=document.getElementById('historyEmptyState'),B=document.getElementById('quickKwhInput'),C=document.getElementById('quickCalcBtn'),A=document.getElementById('quickResultSection'),T=document.getElementById('quickCostResult'),q=document.getElementById('confirmationDialog'),D=document.getElementById('editHistoryDialog');let N=[],M=[],V=null,z=null,P={kwh:0,cost:0};const U=220,W=e=>e.toString().replace(/\B(?=(\d{3})+(?!\d))/g,','),G=e=>(e=Math.max(0,e))<=400?72*e:e<=800?28800+108*(e-400):e<=1200?72e3+175*(e-800):e<=1600?142e3+265*(e-1200):248e3+350*(e-1600),J=(e,t)=>{const o=document.createElement('div');o.className=`toast toast-${t}`,o.innerHTML=e,document.body.appendChild(o),setTimeout(()=>{o.style.animation='slideUpToast 0.3s forwards',setTimeout(()=>o.remove(),300)},2500)},K=(e,t)=>{q.querySelector('#dialogMessage').textContent=e,q.classList.add('active');const o=()=>{t(),n()};var n=()=>{q.classList.remove('active'),q.querySelector('#dialogConfirm').removeEventListener('click',o),q.querySelector('.dialog-btn-cancel').removeEventListener('click',n)};q.querySelector('#dialogConfirm').addEventListener('click',o),q.querySelector('.dialog-btn-cancel').addEventListener('click',n)},Q=t=>{window.scrollTo(0,0),e.forEach(e=>e.classList.toggle('hidden',e.id!==t)),navButtons.forEach(e=>e.classList.toggle('active',e.dataset.view===t)),document.body.classList.toggle('body-no-scroll','main-view'===t||'quick-calc-view'===t)};t.forEach(e=>e.addEventListener('click',()=>Q(e.dataset.view))),o.addEventListener('click',()=>{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(e=>console.error(`Fullscreen error: ${e.message}`))}),document.addEventListener('fullscreenchange',()=>{const e=o;document.fullscreenElement?(e.classList.replace('fa-expand','fa-compress'),e.title='دەرچوون لە پڕکردنی شاشە'):(e.classList.replace('fa-compress','fa-expand'),e.title='پڕکردنی شاشە')});const R=()=>{ne(),ae(),b.textContent=N.length},O=()=>{n.value='',i.value='',s.value='',l.value='1',a.value='watt',V=null,c.innerHTML='<i class="fas fa-plus"></i> <span>زیادکردنی ئامێر</span>',n.focus()};c.addEventListener('click',()=>{const e=n.value.trim(),t=a.value,o=parseFloat(i.value),r=parseInt(l.value),d=parseFloat(s.value);if(!e||isNaN(o)||o<=0||isNaN(d)||d<0||isNaN(r)||r<=0)return void J('<i class="fas fa-exclamation-triangle"></i> تکایە هەموو خانەکان بە دروستی پڕبکەرەوە','error');const u='ampere'===t?o*U:o;V?(N[N.findIndex(e=>e.id===V)]={id:V,name:e,watt:u,hours:d,quantity:r},J('<i class="fas fa-check-circle"></i> ئامێرەکە نوێکرایەوە','success')):(N.push({id:Date.now(),name:e,watt:u,hours:d,quantity:r}),J('<i class="fas fa-check-circle"></i> ئامێرەکە زیادکرا','success')),R(),O()});var ne=()=>{const e=0===N.length;y.style.display=e?'block':'none',h.parentElement.style.display=e?'none':'table',h.innerHTML=N.map((e,t)=>`<tr style="animation-delay: ${30*t}ms"><td>${e.name}</td><td>${e.watt.toFixed(1)}</td><td>${e.hours}</td><td>${e.quantity}</td><td><div class="action-buttons"><button class="action-btn edit-btn" data-id="${e.id}" title="دەستکاری"><i class="fas fa-edit"></i></button><button class="action-btn delete-btn" data-id="${e.id}" title="سڕینەوە"><i class="fas fa-trash-alt"></i></button></div></td></tr>`).join('')};h.addEventListener('click',e=>{const t=e.target.closest('.action-btn');if(!t)return;const o=parseInt(t.dataset.id);if(t.classList.contains('edit-btn')){const e=N.find(e=>e.id===o);e&&(n.value=e.name,a.value='watt',i.value=e.watt,s.value=e.hours,l.value=e.quantity,V=o,c.innerHTML='<i class="fas fa-save"></i> <span>نوێکردنەوەی ئامێر</span>',Q('main-view'),n.focus())}else t.classList.contains('delete-btn')&&K('دڵنیایت دەتەوێت ئەم ئامێرە بسڕیتەوە؟',()=>{N=N.filter(e=>e.id!==o),R(),J('<i class="fas fa-trash-alt"></i> ئامێرەکە سڕایەوە','error')})});var ae=()=>{const e=N.reduce((e,t)=>e+t.watt*t.quantity,0),t=N.reduce((e,t)=>e+t.watt*t.quantity/1e3*t.hours,0),o=e/1e3,n=30*t,a=G(n);r.textContent=o.toFixed(3),u.textContent=t.toFixed(3),d.textContent=n.toFixed(3),m.textContent=W(Math.floor(a))};k.addEventListener('click',()=>{const e=parseFloat(w.value)||0,t=parseFloat(p.value)||0;if(t<e)return void J('<i class="fas fa-exclamation-triangle"></i> خوێندنەوەی ئێستا نابێت لە پێشوو کەمتر بێت','error');const o=t-e,n=G(o);P={kwh:o,cost:n},I.textContent=o.toFixed(2),E.textContent=W(Math.floor(n)),f.classList.remove('hidden');const a=new Date,i=a.getFullYear(),l=(a.getMonth()+1).toString().padStart(2,'0');x.value=`${i}-${l}`}),L.addEventListener('click',()=>{const e=x.value;if(!e)return void J('<i class="fas fa-exclamation-triangle"></i> تکایە مانگ دیاریبکە','error');M.push({id:Date.now(),date:e,kwh:P.kwh,cost:P.cost}),ie(),oe(),J('<i class="fas fa-check-circle"></i> تۆمارەکە پاشەکەوتکرا','success')});const ie=()=>{re()};var re=()=>{M.sort((e,t)=>new Date(t.date)-new Date(e.date));const e=0===M.length;S.style.display=e?'block':'none',H.style.display=e?'none':'grid',H.innerHTML=M.map(e=>`<div class="history-card"><div class="info">${new Date(e.date+'-02').toLocaleDateString('ku-IQ',{year:'numeric',month:'long'})}</div><div class="stats"><span><i class="fas fa-bolt"></i> ${e.kwh.toFixed(1)} kWh</span><span><i class="fas fa-money-bill-wave"></i> ${W(Math.floor(e.cost))} دینار</span></div><div class="actions action-buttons"><button class="action-btn edit-history-btn" data-id="${e.id}" title="دەستکاری"><i class="fas fa-edit"></i></button><button class="action-btn delete-history-btn" data-id="${e.id}" title="سڕینەوە"><i class="fas fa-trash-alt"></i></button></div></div>`).join('')};H.addEventListener('click',e=>{const t=e.target.closest('.action-btn');if(!t)return;const o=parseInt(t.dataset.id);t.classList.contains('delete-history-btn')?K('دڵنیایت دەتەوێت ئەم تۆمارە بسڕیتەوە؟',()=>{M=M.filter(e=>e.id!==o),ie(),oe(),J('<i class="fas fa-trash-alt"></i> تۆمارەکە سڕایەوە','error')}):t.classList.contains('edit-history-btn')&&(z=o,e=M.find(e=>e.id===o))&&(D.querySelector('#editHistoryDate').value=e.date,D.querySelector('#editHistoryKwh').value=e.kwh,D.classList.add('active'))}),D.querySelector('#editHistoryConfirm').addEventListener('click',()=>{const e=D.querySelector('#editHistoryDate').value,t=parseFloat(D.querySelector('#editHistoryKwh').value);if(!e||isNaN(t)||t<0)return void J('<i class="fas fa-exclamation-triangle"></i> تکایە زانیارییەکان بە دروستی پڕبکەرەوە','error');const o=M.findIndex(e=>e.id===z);o>-1&&(M[o].date=e,M[o].kwh=t,M[o].cost=G(t)),ie(),oe(),D.classList.remove('active'),z=null,J('<i class="fas fa-check-circle"></i> تۆمارەکە نوێکرایەوە','success')}),D.querySelector('.dialog-btn-cancel').addEventListener('click',()=>{D.classList.remove('active'),z=null}),C.addEventListener('click',()=>{const e=parseFloat(B.value);if(isNaN(e)||e<0)return void J('<i class="fas fa-exclamation-triangle"></i> تکایە بڕێکی دروست بنووسە','error');const t=G(e);T.textContent=W(Math.floor(t)),A.classList.remove('hidden')}),B.addEventListener('input',()=>{A.classList.add('hidden')});const le=()=>{try{const e=localStorage.getItem('electricityDevices');N=e?JSON.parse(e):[];const t=localStorage.getItem('electricityHistory');M=t?JSON.parse(t):[]}catch(e){console.error('Could not parse localStorage data:',e),N=[],M=[]}R(),ie()},se=()=>{localStorage.setItem('electricityDevices',JSON.stringify(N)),J('<i class="fas fa-check-circle"></i> داتای ئامێرەکان پاشەکەوتکران','success')},oe=()=>{localStorage.setItem('electricityHistory',JSON.stringify(M))},ce=()=>{K('دڵنیایت دەتەوێت هەموو داتای ئامێرەکان بسڕیتەوە؟',()=>{N=[],localStorage.removeItem('electricityDevices'),R(),J('<i class="fas fa-trash-alt"></i> هەموو داتای ئامێرەکان سڕانەوە','error')})};v.addEventListener('click',se),g.addEventListener('click',ce),le(),Q('main-view')})</script>
+    <div class="confirmation-dialog image-dialog" id="imageDialog">
+        <div class="dialog-content">
+            <h3 class="dialog-title">وێنەی پسولە</h3>
+            <div class="image-preview-container">
+                <img id="imagePreview" src="" alt="پێشبینی وێنە">
+            </div>
+            <input type="file" id="billImageInput" accept="image/*">
+            <label for="billImageInput" class="upload-label"><i class="fas fa-upload"></i> هەڵبژاردنی وێنە</label>
+            <div class="dialog-buttons" style="margin-top: 15px;">
+                <button class="dialog-btn dialog-btn-cancel">داخستن</button>
+                <button class="dialog-btn dialog-btn-danger" id="deleteImageBtn">سڕینەوە</button>
+                <button class="dialog-btn dialog-btn-confirm" id="saveImageBtn">پاشەکەوت</button>
+            </div>
+        </div>
+    </div>
+    <div class="confirmation-dialog" id="historyDetailDialog">
+        <div class="dialog-content">
+            <button class="dialog-close-btn">&times;</button>
+            <div class="detail-header">
+                <div id="detailDate" class="detail-date"></div>
+            </div>
+            <div class="detail-body">
+                <div class="detail-main-stats">
+                    <div class="detail-stat-item">
+                        <div id="detailCost" class="value">0</div>
+                        <div class="label">نرخ (دینار)</div>
+                    </div>
+                    <div class="detail-stat-item">
+                        <div id="detailKwh" class="value">0</div>
+                        <div class="label">بەکارهێنان (kWh)</div>
+                    </div>
+                </div>
+                <div class="detail-readings">
+                    <div class="detail-stat-item">
+                        <div id="detailPrev" class="value">0</div>
+                        <div class="label">خوێندنەوەی پێشوو</div>
+                    </div>
+                    <div class="detail-stat-item">
+                        <div id="detailCurrent" class="value">0</div>
+                        <div class="label">خوێندنەوەی ئێستا</div>
+                    </div>
+                </div>
+                <div id="detailImageContainer" class="detail-image-container">
+                    <img id="detailImage" src="" alt="وێنەی پسولە">
+                </div>
+                <div class="dialog-buttons" style="margin-top:20px;display:flex;gap:10px;flex-wrap: wrap;">
+                    <button class="dialog-btn dialog-btn-secondary" id="detailImageBtn" style="flex:1; min-width: 120px;"><i class="fas fa-camera"></i> وێنە</button>
+                    <button class="dialog-btn dialog-btn-cancel" id="detailEditBtn" style="flex:1; min-width: 120px;"><i class="fas fa-edit"></i> دەستکاری</button>
+                    <button class="dialog-btn dialog-btn-danger" id="detailDeleteBtn" style="flex:1; min-width: 120px;"><i class="fas fa-trash-alt"></i> سڕینەوە</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="confirmation-dialog" id="chartDetailDialog">
+        <div class="dialog-content">
+            <button class="dialog-close-btn">&times;</button>
+            <div class="detail-header">
+                <div id="chartDetailDate" class="detail-date"></div>
+            </div>
+            <div class="detail-body">
+                <div class="detail-main-stats">
+                    <div class="detail-stat-item"><div id="chartDetailCost" class="value">0</div><div class="label">نرخ (دینار)</div></div>
+                    <div class="detail-stat-item"><div id="chartDetailKwh" class="value">0</div><div class="label">بەکارهێنان (kWh)</div></div>
+                </div>
+                <div class="detail-readings">
+                    <div class="detail-stat-item"><div id="chartDetailPrev" class="value">0</div><div class="label">خوێندنەوەی پێشوو</div></div>
+                    <div class="detail-stat-item"><div id="chartDetailCurrent" class="value">0</div><div class="label">خوێندنەوەی ئێستا</div></div>
+                </div>
+                <div id="chartDetailImageContainer" class="detail-image-container">
+                    <img id="chartDetailImage" src="" alt="وێنەی پسولە">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="confirmation-dialog" id="deviceDetailDialog">
+        <div class="dialog-content">
+            <button class="dialog-close-btn">&times;</button>
+            <div class="detail-header">
+                <div id="deviceDetailName" class="detail-name"></div>
+            </div>
+            <div class="detail-body">
+                <div class="detail-main-stats">
+                    <div class="detail-stat-item">
+                        <div id="deviceDetailCost" class="value">0</div>
+                        <div class="label">نرخی مانگانە (دینار)</div>
+                    </div>
+                    <div class="detail-stat-item">
+                        <div id="deviceDetailKwh" class="value">0</div>
+                        <div class="label">بەکارهێنانی مانگانە (kWh)</div>
+                    </div>
+                </div>
+                <div class="detail-readings">
+                    <div class="detail-stat-item">
+                        <div id="deviceDetailWatt" class="value">0</div>
+                        <div class="label">وات</div>
+                    </div>
+                    <div class="detail-stat-item">
+                        <div id="deviceDetailQuantity" class="value">0</div>
+                        <div class="label">ژمارە</div>
+                    </div>
+                    <div class="detail-stat-item">
+                        <div id="deviceDetailHours" class="value">0</div>
+                        <div class="label">کاتژمێری ڕۆژانە</div>
+                    </div>
+                </div>
+                <div class="dialog-buttons" style="margin-top:20px;display:flex;gap:10px;">
+                    <button class="dialog-btn dialog-btn-cancel" id="deviceDetailEditBtn" style="flex:1"><i class="fas fa-edit"></i> دەستکاری</button>
+                    <button class="dialog-btn dialog-btn-danger" id="deviceDetailDeleteBtn" style="flex:1"><i class="fas fa-trash-alt"></i> سڕینەوە</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="confirmation-dialog" id="fullImageDialog">
+        <img id="fullImageView" src="" alt="وێنەی گەورەکراو">
+        <button class="dialog-close-btn">&times;</button>
+    </div>
+    <script>/*... هەموو سکریپتەکان وەک خۆی بمێننەوە ... */
+    document.addEventListener('DOMContentLoaded', function() {
+        const views = document.querySelectorAll('.view');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const deviceNameInput = document.getElementById('deviceName');
+        const deviceUnitSelect = document.getElementById('deviceUnit');
+        const deviceValueInput = document.getElementById('deviceValue');
+        const deviceQuantityInput = document.getElementById('deviceQuantity');
+        const deviceHoursInput = document.getElementById('deviceHours');
+        const addDeviceBtn = document.getElementById('addDeviceBtn');
+        const totalKilowattEl = document.getElementById('totalKilowatt');
+        const totalKilowattMonthEl = document.getElementById('totalKilowattMonth');
+        const totalKwhEl = document.getElementById('totalKwh');
+        const totalDinarEl = document.getElementById('totalDinar');
+        const devicesCardsContainer = document.getElementById('devices-cards-container');
+        const devicesEmptyState = document.getElementById('devicesEmptyState');
+        const clearDataBtn = document.getElementById('clearDataBtn');
+        const navDeviceCountBadge = document.getElementById('navDeviceCountBadge');
+        const prevReadingInput = document.getElementById('prevReading');
+        const currentReadingInput = document.getElementById('currentReading');
+        const calculateDiffBtn = document.getElementById('calculateDiffBtn');
+        const diffResultSection = document.getElementById('diffResultSection');
+        const kwhConsumedResultEl = document.getElementById('kwhConsumedResult');
+        const totalCostResultEl = document.getElementById('totalCostResult');
+        const historyDateInput = document.getElementById('historyDate');
+        const saveToHistoryBtn = document.getElementById('saveToHistoryBtn');
+        const historyCardsContainer = document.getElementById('history-cards-container');
+        const historyEmptyState = document.getElementById('historyEmptyState');
+        const quickKwhInput = document.getElementById('quickKwhInput');
+        const quickCalcBtn = document.getElementById('quickCalcBtn');
+        const quickResultSection = document.getElementById('quickResultSection');
+        const quickCostResultEl = document.getElementById('quickCostResult');
+        const confirmationDialog = document.getElementById('confirmationDialog');
+        const editHistoryDialog = document.getElementById('editHistoryDialog');
+        const imageDialog = document.getElementById('imageDialog');
+        const historyDetailDialog = document.getElementById('historyDetailDialog');
+        const chartDetailDialog = document.getElementById('chartDetailDialog');
+        const deviceDetailDialog = document.getElementById('deviceDetailDialog');
+        const fullImageDialog = document.getElementById('fullImageDialog');
+        const fullImageView = document.getElementById('fullImageView');
+        const costChartCanvas = document.getElementById('costChart');
+        const chartEmptyState = document.getElementById('chartEmptyState');
+
+        let devices = [];
+        let history = [];
+        let editingDeviceId = null;
+        let editingHistoryId = null;
+        let currentCalculation = { kwh: 0, cost: 0, prev: 0, current: 0 };
+        let currentImageBase64 = null;
+        let costChartInstance = null;
+        let chartDataSource = [];
+        let totalDailyKwh = 0;
+        let totalMonthlyCost = 0;
+
+        const VOLTAGE = 220;
+
+        const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        const calculateCost = (kwh) => {
+            kwh = Math.max(0, kwh);
+            if (kwh <= 400) return 72 * kwh;
+            if (kwh <= 800) return 28800 + (108 * (kwh - 400));
+            if (kwh <= 1200) return 72000 + (175 * (kwh - 800));
+            if (kwh <= 1600) return 142000 + (265 * (kwh - 1200));
+            return 248000 + (350 * (kwh - 1600));
+        };
+
+        const showToast = (message, type) => {
+            const toast = document.createElement('div');
+            toast.className = `toast toast-${type}`;
+            toast.innerHTML = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.animation = 'slideUpToast 0.3s forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        };
+
+        const showConfirmation = (message, onConfirm) => {
+            confirmationDialog.querySelector('#dialogMessage').textContent = message;
+            confirmationDialog.classList.add('active');
+
+            const confirmHandler = () => {
+                onConfirm();
+                cleanup();
+            };
+            const cleanup = () => {
+                confirmationDialog.classList.remove('active');
+                confirmationDialog.querySelector('#dialogConfirm').removeEventListener('click', confirmHandler);
+                confirmationDialog.querySelector('.dialog-btn-cancel').removeEventListener('click', cleanup);
+            };
+            confirmationDialog.querySelector('#dialogConfirm').addEventListener('click', confirmHandler);
+            confirmationDialog.querySelector('.dialog-btn-cancel').addEventListener('click', cleanup);
+        };
+
+        const switchView = (viewId) => {
+            window.scrollTo(0, 0);
+            views.forEach(view => view.classList.toggle('hidden', view.id !== viewId));
+            navButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.view === viewId));
+            document.body.classList.toggle('body-no-scroll', ['main-view', 'quick-calc-view', 'devices-view'].includes(viewId));
+        };
+
+        navButtons.forEach(btn => btn.addEventListener('click', () => switchView(btn.dataset.view)));
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => console.error(`Fullscreen error: ${err.message}`));
+            } else {
+                document.exitFullscreen();
+            }
+        });
+        document.addEventListener('fullscreenchange', () => {
+            const icon = fullscreenBtn;
+            if (document.fullscreenElement) {
+                icon.classList.replace('fa-expand', 'fa-compress');
+                icon.title = 'دەرچوون لە پڕکردنی شاشە';
+            } else {
+                icon.classList.replace('fa-compress', 'fa-expand');
+                icon.title = 'پڕکردنی شاشە';
+            }
+        });
+
+        const _saveDevices = () => {
+            localStorage.setItem('electricityDevices', JSON.stringify(devices));
+        };
+        
+        const _saveHistory = () => {
+            localStorage.setItem('electricityHistory', JSON.stringify(history));
+        };
+
+        const updateAllCalculations = () => {
+            const totalWatt = devices.reduce((sum, d) => sum + (d.watt * d.quantity), 0);
+            totalDailyKwh = devices.reduce((sum, d) => sum + (d.watt * d.quantity / 1000 * d.hours), 0);
+            const monthlyKwh = totalDailyKwh * 30;
+            totalMonthlyCost = calculateCost(monthlyKwh);
+
+            totalKilowattEl.textContent = (totalWatt / 1000).toFixed(3);
+            totalKwhEl.textContent = totalDailyKwh.toFixed(3);
+            totalKilowattMonthEl.textContent = monthlyKwh.toFixed(3);
+            totalDinarEl.textContent = formatNumber(Math.floor(totalMonthlyCost));
+        }
+
+        const updateCalculationsAndRender = () => {
+            updateAllCalculations();
+            renderDeviceCards();
+            navDeviceCountBadge.textContent = devices.length;
+        };
+
+        const resetDeviceForm = () => {
+            deviceNameInput.value = '';
+            deviceValueInput.value = '';
+            deviceHoursInput.value = '';
+            deviceQuantityInput.value = '1';
+            deviceUnitSelect.value = 'watt';
+            editingDeviceId = null;
+            addDeviceBtn.innerHTML = '<i class="fas fa-plus"></i> <span>زیادکردنی ئامێر</span>';
+            deviceNameInput.focus();
+        };
+
+        addDeviceBtn.addEventListener('click', () => {
+            const name = deviceNameInput.value.trim();
+            const unit = deviceUnitSelect.value;
+            const value = parseFloat(deviceValueInput.value);
+            const quantity = parseInt(deviceQuantityInput.value);
+            const hours = parseFloat(deviceHoursInput.value);
+
+            if (!name || isNaN(value) || value <= 0 || isNaN(hours) || hours < 0 || isNaN(quantity) || quantity <= 0) {
+                return showToast('<i class="fas fa-exclamation-triangle"></i> تکایە هەموو خانەکان بە دروستی پڕبکەرەوە', 'error');
+            }
+
+            const watt = unit === 'ampere' ? value * VOLTAGE : value;
+
+            if (editingDeviceId) {
+                const deviceIndex = devices.findIndex(d => d.id === editingDeviceId);
+                devices[deviceIndex] = { id: editingDeviceId, name, watt, hours, quantity };
+                showToast('<i class="fas fa-check-circle"></i> ئامێرەکە نوێکرایەوە', 'success');
+            } else {
+                devices.push({ id: Date.now(), name, watt, hours, quantity });
+                showToast('<i class="fas fa-check-circle"></i> ئامێرەکە زیادکرا', 'success');
+            }
+            
+            _saveDevices();
+            updateCalculationsAndRender();
+            resetDeviceForm();
+        });
+
+        const renderDeviceCards = () => {
+            const hasDevices = devices.length > 0;
+            devicesEmptyState.style.display = hasDevices ? 'none' : 'block';
+            devicesCardsContainer.style.display = hasDevices ? 'grid' : 'none';
+            
+            devicesCardsContainer.innerHTML = devices.map(device => {
+                let deviceMonthlyCost = 0;
+                if (totalDailyKwh > 0) {
+                    const deviceDailyKwh = (device.watt * device.quantity / 1000 * device.hours);
+                    const kwhPercentage = deviceDailyKwh / totalDailyKwh;
+                    deviceMonthlyCost = totalMonthlyCost * kwhPercentage;
+                }
+                
+                return `
+                <div class="device-card" data-id="${device.id}">
+                    <div class="device-card-name">${device.name}</div>
+                    <div class="device-card-stats">
+                        <div class="device-card-stat">
+                            <div class="value">${formatNumber(Math.floor(deviceMonthlyCost))}</div>
+                            <div class="label">دینار/مانگانە</div>
+                        </div>
+                        <div class="device-card-stat">
+                            <div class="value">${device.watt.toFixed(0)}</div>
+                            <div class="label">وات</div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        };
+
+        const openDeviceDetailModal = (id) => {
+            const device = devices.find(d => d.id === id);
+            if (!device) return;
+
+            editingDeviceId = id;
+
+            let deviceMonthlyCost = 0;
+            const deviceDailyKwh = (device.watt * device.quantity / 1000 * device.hours);
+            if (totalDailyKwh > 0) {
+                const kwhPercentage = deviceDailyKwh / totalDailyKwh;
+                deviceMonthlyCost = totalMonthlyCost * kwhPercentage;
+            }
+
+            document.getElementById('deviceDetailName').textContent = device.name;
+            document.getElementById('deviceDetailCost').textContent = formatNumber(Math.floor(deviceMonthlyCost));
+            document.getElementById('deviceDetailKwh').textContent = (deviceDailyKwh * 30).toFixed(2);
+            document.getElementById('deviceDetailWatt').textContent = device.watt.toFixed(1);
+            document.getElementById('deviceDetailQuantity').textContent = device.quantity;
+            document.getElementById('deviceDetailHours').textContent = device.hours;
+
+            deviceDetailDialog.classList.add('active');
+        };
+
+        devicesCardsContainer.addEventListener('click', (e) => {
+            const card = e.target.closest('.device-card');
+            if (card) {
+                const id = parseInt(card.dataset.id);
+                openDeviceDetailModal(id);
+            }
+        });
+
+        deviceDetailDialog.querySelector('.dialog-close-btn').addEventListener('click', () => deviceDetailDialog.classList.remove('active'));
+
+        document.getElementById('deviceDetailEditBtn').addEventListener('click', () => {
+            const device = devices.find(d => d.id === editingDeviceId);
+            if(device){
+                deviceDetailDialog.classList.remove('active');
+                deviceNameInput.value = device.name;
+                deviceUnitSelect.value = 'watt';
+                deviceValueInput.value = device.watt;
+                deviceHoursInput.value = device.hours;
+                deviceQuantityInput.value = device.quantity;
+                addDeviceBtn.innerHTML = '<i class="fas fa-save"></i> <span>نوێکردنەوەی ئامێر</span>';
+                switchView('main-view');
+                deviceNameInput.focus();
+            }
+        });
+
+        document.getElementById('deviceDetailDeleteBtn').addEventListener('click', () => {
+            deviceDetailDialog.classList.remove('active');
+            showConfirmation('دڵنیایت دەتەوێت ئەم ئامێرە بسڕیتەوە؟', () => {
+                devices = devices.filter(d => d.id !== editingDeviceId);
+                _saveDevices();
+                updateCalculationsAndRender();
+                showToast('<i class="fas fa-trash-alt"></i> ئامێرەکە سڕایەوە', 'error');
+            });
+        });
+
+        calculateDiffBtn.addEventListener('click', () => {
+            const prev = parseFloat(prevReadingInput.value) || 0;
+            const current = parseFloat(currentReadingInput.value) || 0;
+            if (current < prev) {
+                return showToast('<i class="fas fa-exclamation-triangle"></i> خوێندنەوەی ئێستا نابێت لە پێشوو کەمتر بێت', 'error');
+            }
+            const kwh = current - prev;
+            const cost = calculateCost(kwh);
+            currentCalculation = { kwh, cost, prev, current };
+
+            kwhConsumedResultEl.textContent = kwh.toFixed(2);
+            totalCostResultEl.textContent = formatNumber(Math.floor(cost));
+            diffResultSection.classList.remove('hidden');
+
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            historyDateInput.value = `${year}-${month}`;
+        });
+
+        saveToHistoryBtn.addEventListener('click', () => {
+            const date = historyDateInput.value;
+            if (!date) {
+                return showToast('<i class="fas fa-exclamation-triangle"></i> تکایە مانگ دیاریبکە', 'error');
+            }
+            history.push({
+                id: Date.now(),
+                date: date,
+                kwh: currentCalculation.kwh,
+                cost: currentCalculation.cost,
+                prevReading: currentCalculation.prev,
+                currentReading: currentCalculation.current,
+                billImage: null
+            });
+            renderHistory();
+            renderCostChart();
+            _saveHistory();
+            showToast('<i class="fas fa-check-circle"></i> تۆمارەکە پاشەکەوتکرا', 'success');
+        });
+
+        const renderHistory = () => {
+            history.sort((a, b) => new Date(b.date) - new Date(a.date));
+            const hasHistory = history.length > 0;
+            historyEmptyState.style.display = hasHistory ? 'none' : 'block';
+            historyCardsContainer.style.display = hasHistory ? 'grid' : 'none';
+
+            historyCardsContainer.innerHTML = history.map(item => {
+                const dateFormatted = new Date(item.date + '-02').toLocaleDateString('ku-IQ', { month: 'short', year: '2-digit' });
+                
+                return `
+                <div class="history-card" data-id="${item.id}">
+                    <div class="history-card-date-small">${dateFormatted}</div>
+                    <div class="history-card-main-stats">
+                        <div class="history-card-stat-small">
+                            <div class="value">${formatNumber(Math.floor(item.cost))}</div>
+                            <div class="label">دینار</div>
+                        </div>
+                        <div class="history-card-stat-small">
+                            <div class="value">${item.kwh.toFixed(1)}</div>
+                            <div class="label">kWh</div>
+                        </div>
+                    </div>
+                    ${item.billImage ? '<i class="fas fa-camera history-card-image-indicator"></i>' : ''}
+                </div>`;
+            }).join('');
+        };
+        
+        const openHistoryDetailModal = (id) => {
+             const item = history.find(h => h.id === id);
+             if (!item) return;
+
+             editingHistoryId = id;
+             
+             document.getElementById('detailDate').textContent = new Date(item.date + '-02').toLocaleDateString('ku-IQ', { year: 'numeric', month: 'long' });
+             document.getElementById('detailCost').textContent = formatNumber(Math.floor(item.cost));
+             document.getElementById('detailKwh').textContent = item.kwh.toFixed(1);
+             document.getElementById('detailPrev').textContent = item.prevReading.toFixed(1);
+             document.getElementById('detailCurrent').textContent = item.currentReading.toFixed(1);
+             
+             const imgContainer = document.getElementById('detailImageContainer');
+             const img = document.getElementById('detailImage');
+
+             if (item.billImage) {
+                 img.src = item.billImage;
+                 imgContainer.style.display = 'block';
+             } else {
+                 img.src = '';
+                 imgContainer.style.display = 'none';
+             }
+             
+             historyDetailDialog.classList.add('active');
+        };
+
+        const openChartDetailModal = (index) => {
+            const item = chartDataSource[index];
+            if (!item) return;
+
+            document.getElementById('chartDetailDate').textContent = new Date(item.date + '-02').toLocaleDateString('ku-IQ', { year: 'numeric', month: 'long' });
+            document.getElementById('chartDetailCost').textContent = formatNumber(Math.floor(item.cost));
+            document.getElementById('chartDetailKwh').textContent = item.kwh.toFixed(1);
+            document.getElementById('chartDetailPrev').textContent = item.prevReading.toFixed(1);
+            document.getElementById('chartDetailCurrent').textContent = item.currentReading.toFixed(1);
+            
+            const imgContainer = document.getElementById('chartDetailImageContainer');
+            const img = document.getElementById('chartDetailImage');
+
+            if (item.billImage) {
+                img.src = item.billImage;
+                imgContainer.style.display = 'block';
+            } else {
+                img.src = '';
+                imgContainer.style.display = 'none';
+            }
+            
+            chartDetailDialog.classList.add('active');
+        };
+
+        historyCardsContainer.addEventListener('click', e => {
+            const card = e.target.closest('.history-card');
+            if (card) {
+                const id = parseInt(card.dataset.id);
+                openHistoryDetailModal(id);
+            }
+        });
+        
+        historyDetailDialog.querySelector('.dialog-close-btn').addEventListener('click', () => historyDetailDialog.classList.remove('active'));
+        chartDetailDialog.querySelector('.dialog-close-btn').addEventListener('click', () => chartDetailDialog.classList.remove('active'));
+
+        const openEditDialog = (id) => {
+             const item = history.find(h => h.id === id);
+             if (item) {
+                editHistoryDialog.querySelector('#editHistoryDate').value = item.date;
+                editHistoryDialog.querySelector('#editHistoryPrevReading').value = item.prevReading;
+                editHistoryDialog.querySelector('#editHistoryCurrentReading').value = item.currentReading;
+                editHistoryDialog.classList.add('active');
+            }
+        };
+
+        const openImageDialog = (id) => {
+            const item = history.find(h => h.id === id);
+            if(item){
+                const preview = imageDialog.querySelector('#imagePreview');
+                currentImageBase64 = item.billImage;
+                preview.src = item.billImage || '';
+                preview.style.display = item.billImage ? 'block' : 'none';
+                imageDialog.classList.add('active');
+            }
+        };
+
+        document.getElementById('detailImageBtn').addEventListener('click', () => {
+            historyDetailDialog.classList.remove('active');
+            openImageDialog(editingHistoryId);
+        });
+        
+        document.getElementById('detailEditBtn').addEventListener('click', () => {
+            historyDetailDialog.classList.remove('active');
+            openEditDialog(editingHistoryId);
+        });
+
+        document.getElementById('detailDeleteBtn').addEventListener('click', () => {
+            historyDetailDialog.classList.remove('active');
+            showConfirmation('دڵنیایت دەتەوێت ئەم تۆمارە بسڕیتەوە؟', () => {
+                history = history.filter(h => h.id !== editingHistoryId);
+                renderHistory();
+                renderCostChart();
+                _saveHistory();
+                showToast('<i class="fas fa-trash-alt"></i> تۆمارەکە سڕایەوە', 'error');
+            });
+        });
+
+
+        editHistoryDialog.querySelector('#editHistoryConfirm').addEventListener('click', () => {
+            const date = editHistoryDialog.querySelector('#editHistoryDate').value;
+            const prev = parseFloat(editHistoryDialog.querySelector('#editHistoryPrevReading').value);
+            const current = parseFloat(editHistoryDialog.querySelector('#editHistoryCurrentReading').value);
+
+            if (!date || isNaN(prev) || prev < 0 || isNaN(current) || current < prev) {
+                return showToast('<i class="fas fa-exclamation-triangle"></i> تکایە زانیارییەکان بە دروستی پڕبکەرەوە', 'error');
+            }
+            const index = history.findIndex(h => h.id === editingHistoryId);
+            if (index > -1) {
+                const kwh = current - prev;
+                history[index].date = date;
+                history[index].prevReading = prev;
+                history[index].currentReading = current;
+                history[index].kwh = kwh;
+                history[index].cost = calculateCost(kwh);
+            }
+            renderHistory();
+            renderCostChart();
+            _saveHistory();
+            editHistoryDialog.classList.remove('active');
+            editingHistoryId = null;
+            showToast('<i class="fas fa-check-circle"></i> تۆمارەکە نوێکرایەوە', 'success');
+        });
+        editHistoryDialog.querySelector('.dialog-btn-cancel').addEventListener('click', () => {
+            editHistoryDialog.classList.remove('active');
+            editingHistoryId = null;
+        });
+
+        imageDialog.querySelector('.dialog-btn-cancel').addEventListener('click', () => imageDialog.classList.remove('active'));
+
+        imageDialog.querySelector('#billImageInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    currentImageBase64 = event.target.result;
+                    const preview = imageDialog.querySelector('#imagePreview');
+                    preview.src = currentImageBase64;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        imageDialog.querySelector('#saveImageBtn').addEventListener('click', () => {
+             const index = history.findIndex(h => h.id === editingHistoryId);
+             if(index > -1) {
+                history[index].billImage = currentImageBase64;
+                _saveHistory();
+                renderHistory();
+                imageDialog.classList.remove('active');
+                showToast('<i class="fas fa-save"></i> وێنەکە پاشەکەوتکرا', 'success');
+             }
+        });
+
+        imageDialog.querySelector('#deleteImageBtn').addEventListener('click', () => {
+             showConfirmation('دڵنیایت دەتەوێت ئەم وێنەیە بسڕیتەوە؟', () => {
+                const index = history.findIndex(h => h.id === editingHistoryId);
+                if(index > -1) {
+                    history[index].billImage = null;
+                    currentImageBase64 = null;
+                    _saveHistory();
+                    renderHistory();
+                    imageDialog.classList.remove('active');
+                    showToast('<i class="fas fa-trash-alt"></i> وێنەکە سڕایەوە', 'error');
+                }
+             });
+        });
+        
+        const openFullImageView = (e) => {
+            const imgElement = e.currentTarget.querySelector('img');
+            if (imgElement && imgElement.src && !imgElement.src.includes('undefined')) {
+                fullImageView.src = imgElement.src;
+                fullImageDialog.classList.add('active');
+            }
+        };
+        
+        document.getElementById('detailImageContainer').addEventListener('click', openFullImageView);
+        document.getElementById('chartDetailImageContainer').addEventListener('click', openFullImageView);
+
+        fullImageDialog.querySelector('.dialog-close-btn').addEventListener('click', () => fullImageDialog.classList.remove('active'));
+        fullImageDialog.addEventListener('click', (e) => {
+            if (e.target.id === 'fullImageDialog') {
+                 fullImageDialog.classList.remove('active');
+            }
+        });
+
+        const renderCostChart = () => {
+            if (costChartInstance) {
+                costChartInstance.destroy();
+            }
+
+            if(history.length < 1){
+                costChartCanvas.style.display = 'none';
+                chartEmptyState.classList.remove('hidden');
+                return;
+            }
+            costChartCanvas.style.display = 'block';
+            chartEmptyState.classList.add('hidden');
+
+            chartDataSource = [...history].sort((a,b) => new Date(a.date) - new Date(b.date)).slice(-12);
+            const labels = chartDataSource.map(item => new Date(item.date + '-02').toLocaleDateString('ku-IQ', { month: 'short', year: 'numeric' }));
+            const data = chartDataSource.map(item => Math.floor(item.cost));
+            
+            const ctx = costChartCanvas.getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, costChartCanvas.clientHeight);
+            gradient.addColorStop(0, 'rgba(0, 245, 195, 0.5)');   
+            gradient.addColorStop(1, 'rgba(0, 245, 195, 0)');
+
+            costChartInstance = new Chart(costChartCanvas, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'نرخی مانگانە',
+                        data: data,
+                        backgroundColor: gradient,
+                        borderColor: '#00f5c3',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#00f5c3',
+                        pointBorderColor: '#121828',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00f5c3',
+                        tension: 0.4,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    onClick: (event, elements) => {
+                        if (elements.length > 0) {
+                            const clickedIndex = elements[0].index;
+                            openChartDetailModal(clickedIndex);
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#94a3b8',
+                                callback: function(value) {
+                                    return formatNumber(value) + ' د.';
+                                }
+                            },
+                            grid: { color: 'rgba(71, 85, 105, 0.5)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(30, 41, 59, 0.8)',
+                            titleColor: '#f1f5f9',
+                            bodyColor: '#f1f5f9',
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.parsed.y !== null) {
+                                        label += formatNumber(context.parsed.y) + ' دینار';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        quickCalcBtn.addEventListener('click', () => {
+            const kwh = parseFloat(quickKwhInput.value);
+            if (isNaN(kwh) || kwh < 0) {
+                return showToast('<i class="fas fa-exclamation-triangle"></i> تکایە بڕێکی دروست بنووسە', 'error');
+            }
+            const cost = calculateCost(kwh);
+            quickCostResultEl.textContent = formatNumber(Math.floor(cost));
+            quickResultSection.classList.remove('hidden');
+        });
+        quickKwhInput.addEventListener('input', () => {
+            quickResultSection.classList.add('hidden');
+        });
+
+        const loadData = () => {
+            try {
+                const devicesData = localStorage.getItem('electricityDevices');
+                devices = devicesData ? JSON.parse(devicesData) : [];
+                const historyData = localStorage.getItem('electricityHistory');
+                history = historyData ? JSON.parse(historyData) : [];
+            } catch (e) {
+                console.error('Could not parse localStorage data:', e);
+                devices = [];
+                history = [];
+            }
+            updateCalculationsAndRender();
+            renderHistory();
+            renderCostChart();
+        };
+
+        const clearAllDevicesData = () => {
+            showConfirmation('دڵنیایت دەتەوێت هەموو داتای ئامێرەکان بسڕیتەوە؟', () => {
+                devices = [];
+                _saveDevices();
+                updateCalculationsAndRender();
+                showToast('<i class="fas fa-trash-alt"></i> هەموو داتای ئامێرەکان سڕانەوە', 'error');
+            });
+        };
+
+        clearDataBtn.addEventListener('click', clearAllDevicesData);
+
+        loadData();
+        switchView('main-view');
+    });
+    </script>
     <script>
       // Corrected Service Worker Registration for Karaba-update
       if ('serviceWorker' in navigator) {
